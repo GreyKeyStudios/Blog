@@ -3,7 +3,7 @@ remote_theme: mmistakes/so-simple-theme
 
 # Site settings
 title: "Grey Key Studios Blog"
-description: "A blog documenting cybersecurity, AI, game dev, and creative tech projects."
+description: "A blog documenting cybersecurity, AI, game dev, music and creative tech projects."
 locale: en-US
 url: "https://blog.greykeystudios.com"
 baseurl: ""  # Empty because you're using a subdomain
