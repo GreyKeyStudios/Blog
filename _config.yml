@@ -1,0 +1,12 @@
+title: Grey Key Studios Blog
+description: A blog documenting my cybersecurity and creative tech projects.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://blog.greykeystudios.com" # the base hostname & protocol
+
+theme: minima
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+markdown: kramdown
