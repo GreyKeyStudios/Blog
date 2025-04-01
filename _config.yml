@@ -7,13 +7,13 @@ description: "A blog documenting cybersecurity, AI, game dev, and creative tech 
 locale: en-US
 url: "https://blog.greykeystudios.com"
 baseurl: ""  # Empty because you're using a subdomain
-logo: /assets/images/logo.png
-favicon: /assets/images/logo.png
+logo: /assets/images/color.png
+favicon: /assets/images/color.png
 
 # Author Info
 author:
   name: Grey Key Studios
-  picture: /assets/images/logo.png
+  picture: /assets/images/color.png
   twitter: GreyKeyStudios
   links:
     - title: GitHub
