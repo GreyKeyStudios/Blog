@@ -1,65 +1,52 @@
+# Remote theme setup
+remote_theme: mmistakes/so-simple-theme
+
 # Site settings
 title: "Grey Key Studios Blog"
-description: "A blog documenting my cybersecurity and creative tech projects."
+description: "A blog documenting cybersecurity, AI, game dev, and creative tech projects."
 locale: en-US
 url: "https://blog.greykeystudios.com"
-baseurl: ""  # subdomain root
-logo: "/assets/images/logo.png"
-favicon: "/assets/images/logo.png"
-date_format: "%B %-d, %Y"
+baseurl: ""  # Empty because you're using a subdomain
+logo: /assets/images/logo.png
+favicon: /assets/images/logo.png
+
+# Author Info
+author:
+  name: Grey Key Studios
+  picture: /assets/images/logo.png
+  twitter: GreyKeyStudios
+  links:
+    - title: GitHub
+      url: https://github.com/GreyKeyStudios
+      icon: fab fa-github
+    - title: Main Site
+      url: https://greykeystudios.com
+      icon: fas fa-link
+
+# Build settings
+markdown: kramdown
+permalink: /:categories/:title/
 read_time: true
 words_per_minute: 200
 
-# Use the So Simple remote theme
-remote_theme: "mmistakes/so-simple-theme"
-
-# Fonts
-google_fonts:
-  - name: "Source Sans Pro"
-    weights: "400,400i,700,700i"
-  - name: "Lora"
-    weights: "400,400i,700,700i"
-
 # Plugins
 plugins:
-  - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-paginate
 
-# Author Info
-author:
-  name: "Grey Key Studios"
-  picture: "/assets/images/logo.png"
-  twitter: "GreyKeyStudios"
-  links:
-    - title: "GitHub"
-      url: "https://github.com/GreyKeyStudios"
-      icon: "fab fa-github"
-    - title: "Main Site"
-      url: "https://greykeystudios.com"
-      icon: "fas fa-link"
-
-# Footer Links
-footer_links:
-  - title: "Feed"
-    url: atom.xml
-    icon: "fas fa-rss-square"
-
-# Permalinks and pagination
-permalink: /:categories/:title/
+# Pagination
 paginate: 5
 paginate_path: /page:num/
 
-# Build
-markdown: kramdown
+# Footer
+footer_links:
+  - title: Feed
+    url: atom.xml
+    icon: fas fa-rss-square
 
-# Liquid settings
-liquid:
-  error_mode: strict
-
-# Post defaults
+# Defaults
 defaults:
   - scope:
       path: "_posts"
@@ -68,6 +55,10 @@ defaults:
       layout: post
       share: true
 
-# Exclude unneeded files
+# Liquid
+liquid:
+  error_mode: strict
+
+# Exclude (optional)
 exclude:
   - README.md
