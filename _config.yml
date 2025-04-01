@@ -82,3 +82,5 @@ defaults:
       share: true
 exclude:
   - README.md
+#logo image
+favicon: /assets/images/logo.png
