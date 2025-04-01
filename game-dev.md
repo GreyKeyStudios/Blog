@@ -1,7 +1,7 @@
 ---
-layout: page
-title: Game Dev Projects
+title: "Game Dev Projects"
 permalink: /categories/game-dev/
+layout: single
+author_profile: false
 ---
-
-_Coming soon!_
+Coming soon.

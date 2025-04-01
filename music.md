@@ -1,7 +1,7 @@
 ---
-layout: page
-title: Music & Audio Projects
+title: "Music & Audio Projects"
 permalink: /categories/music/
+layout: single
+author_profile: false
 ---
-
-_Coming soon!_
+Coming soon.

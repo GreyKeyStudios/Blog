@@ -1,9 +1,20 @@
 main:
   - title: "Home"
-    url: "/"
+    url: /
+
   - title: "Projects"
-    url: "/projects/"
+    children:
+      - title: "Cybersecurity"
+        url: /cybersecurity/
+      - title: "Game Dev"
+        url: /game-dev/
+      - title: "Music & Audio"
+        url: /music/
+      - title: "AI Projects"
+        url: /ai/
+
   - title: "About"
-    url: "/about/"
+    url: /about/
+
   - title: "Links"
-    url: "/links/"
+    url: /links/

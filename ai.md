@@ -1,7 +1,7 @@
 ---
-layout: page
-title: AI Projects
+title: "AI Projects"
 permalink: /categories/ai/
+layout: single
+author_profile: false
 ---
-
-_Coming soon!_
+Coming soon.

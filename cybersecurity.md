@@ -1,7 +1,7 @@
 ---
-layout: page
-title: Cybersecurity Projects
+title: "Cybersecurity Projects"
 permalink: /categories/cybersecurity/
+layout: single
+author_profile: false
 ---
-
-_Coming soon!_
+Coming soon.

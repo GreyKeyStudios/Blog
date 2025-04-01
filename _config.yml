@@ -1,50 +1,35 @@
-# Remote theme setup
-remote_theme: mmistakes/so-simple-theme
+_config.yml:
 
-# Site settings
+# Site Info
 title: "Grey Key Studios Blog"
-description: "A blog documenting cybersecurity, AI, game dev, music and creative tech projects."
-locale: en-US
+description: "A blog documenting cybersecurity, game dev, music, and creative tech projects."
 url: "https://blog.greykeystudios.com"
-baseurl: ""  # Empty because you're using a subdomain
-logo: /assets/images/color.png
-favicon: /assets/images/color.png
+baseurl: ""
+logo: "/assets/images/color.png"
+repository: "GreyKeyStudios/Blog"
 
-# Author Info
-author:
-  name: Grey Key Studios
-  picture: /assets/images/color.png
-  twitter: GreyKeyStudios
-  links:
-    - title: GitHub
-      url: https://github.com/GreyKeyStudios
-      icon: fab fa-github
-    - title: Main Site
-      url: https://greykeystudios.com
-      icon: fas fa-link
-
-# Build settings
-markdown: kramdown
-permalink: /:categories/:title/
-read_time: true
-words_per_minute: 200
+# Theme
+remote_theme: "mmistakes/minimal-mistakes"
 
 # Plugins
 plugins:
+  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-feed
-  - jekyll-paginate
+  - jekyll-include-cache
 
-# Pagination
-paginate: 5
-paginate_path: /page:num/
+# Navigation
+collections:
+  posts:
+    output: true
 
-# Footer
-footer_links:
-  - title: Feed
-    url: atom.xml
-    icon: fas fa-rss-square
+# Markdown / Permalinks
+markdown: kramdown
+permalink: /:categories/:title/
+
+# Build
+include: ["_pages"]
+exclude: ["README.md", "Gemfile", "Gemfile.lock", "node_modules", "vendor"]
 
 # Defaults
 defaults:
@@ -52,16 +37,114 @@ defaults:
       path: "_posts"
       type: posts
     values:
-      layout: post
-      share: true
+      layout: single
+      author_profile: true
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
 
-# Liquid
-liquid:
-  error_mode: strict
+author:
+  name: "Grey Key Studios"
+  avatar: "/assets/images/color.png"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/GreyKeyStudios"
+    - label: "Main Site"
+      icon: "fas fa-link"
+      url: "https://greykeystudios.com"
 
-# Exclude (optional)
-exclude:
-  - README.md
-  
+theme_settings:
+  header:
+    title: true
 
+---
 
+_data/navigation.yml:
+
+main:
+  - title: "Home"
+    url: /
+  - title: "Projects"
+    children:
+      - title: "Cybersecurity"
+        url: /cybersecurity/
+      - title: "Game Dev"
+        url: /game-dev/
+      - title: "Music & Audio"
+        url: /music/
+      - title: "AI Projects"
+        url: /ai/
+  - title: "About"
+    url: /about/
+  - title: "Links"
+    url: /links/
+
+---
+
+_pages/cybersecurity.md:
+---
+layout: single
+title: "Cybersecurity Projects"
+permalink: /cybersecurity/
+---
+
+Coming soon: Labs, threat detection, and real-world scenarios.
+
+---
+
+_pages/game-dev.md:
+---
+layout: single
+title: "Game Dev Projects"
+permalink: /game-dev/
+---
+
+Coming soon: Beat 'em up, Blaxploitation game, cybersecurity game, and more.
+
+---
+
+_pages/music.md:
+---
+layout: single
+title: "Music & Audio Projects"
+permalink: /music/
+---
+
+Coming soon: AI-assisted music, production breakdowns, plugin ideas.
+
+---
+
+_pages/ai.md:
+---
+layout: single
+title: "AI Projects"
+permalink: /ai/
+---
+
+Coming soon: Custom GPT workflows, music AI tools, creative experiments.
+
+---
+
+_pages/about.md:
+---
+layout: single
+title: "About"
+permalink: /about/
+---
+
+Grey Key Studios is a multidisciplinary lab notebook covering cybersecurity, music, AI, and game development.
+
+---
+
+_pages/links.md:
+---
+layout: single
+title: "Links"
+permalink: /links/
+---
+
+Useful resources and tools will be added here soon.

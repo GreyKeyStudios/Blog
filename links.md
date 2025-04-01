@@ -1,11 +1,9 @@
 ---
-layout: page
-title: Links
+title: "Links"
 permalink: /links/
+layout: single
+author_profile: false
 ---
-
-Here are some useful links:
-
 - [GitHub](https://github.com/GreyKeyStudios)
 - [Main Website](https://greykeystudios.com)
 - [Cybersecurity Labs](/categories/cybersecurity/)
