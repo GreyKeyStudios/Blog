@@ -1,4 +1,4 @@
-# Grey Key Studios Blog
+# README
 
 Welcome to the **Grey Key Studios Blog**, a documentation and showcase of cybersecurity, creative tech, and personal development projects. This blog exists to track progress, share solutions to complex technical challenges, and serve as a living portfolio for career and personal growth.
 
