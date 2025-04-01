@@ -80,3 +80,5 @@ defaults:
     values:
       layout: post
       share: true
+exclude:
+  - README.md
