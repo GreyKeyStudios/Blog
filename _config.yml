@@ -3,50 +3,26 @@ title: "Grey Key Studios Blog"
 description: "A blog documenting my cybersecurity and creative tech projects."
 locale: en-US
 url: "https://blog.greykeystudios.com"
-baseurl: ""  # keep empty for root of subdomain
-logo: "/assets/images/logo.png"  # update path once you upload your logo
+baseurl: ""  # subdomain root
+logo: "/assets/images/logo.png"
+favicon: "/assets/images/logo.png"
 date_format: "%B %-d, %Y"
 read_time: true
 words_per_minute: 200
 
-# Theme
-theme: jekyll-theme-so-simple
-skin: "/assets/css/skins/default.css"
+# Use the So Simple remote theme
+remote_theme: "mmistakes/so-simple-theme"
 
+# Fonts
 google_fonts:
   - name: "Source Sans Pro"
     weights: "400,400i,700,700i"
   - name: "Lora"
     weights: "400,400i,700,700i"
 
-# Analytics and Comments (optional)
-google_analytics: ""  # Add ID if needed
-disqus:
-  shortname: ""        # Add Disqus shortname if used
-
-# Social (optional)
-twitter:
-  username: "GreyKeyStudios"
-
-# Liquid
-liquid:
-  error_mode: strict
-
-# Build settings
-markdown: kramdown
-permalink: /:categories/:title/
-feed:
-  path: atom.xml
-
-# Pagination
-paginate: 5
-paginate_path: /page:num/
-
-# Search
-search_full_content: false
-
 # Plugins
 plugins:
+  - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
@@ -54,9 +30,8 @@ plugins:
 
 # Author Info
 author:
-  name: Grey Key Studios
-  picture: /assets/images/logo.png  # Use your logo or personal avatar
-  email: ""
+  name: "Grey Key Studios"
+  picture: "/assets/images/logo.png"
   twitter: "GreyKeyStudios"
   links:
     - title: "GitHub"
@@ -70,9 +45,21 @@ author:
 footer_links:
   - title: "Feed"
     url: atom.xml
-    icon: fas fa-rss-square
+    icon: "fas fa-rss-square"
 
-# Defaults for posts
+# Permalinks and pagination
+permalink: /:categories/:title/
+paginate: 5
+paginate_path: /page:num/
+
+# Build
+markdown: kramdown
+
+# Liquid settings
+liquid:
+  error_mode: strict
+
+# Post defaults
 defaults:
   - scope:
       path: "_posts"
@@ -80,7 +67,7 @@ defaults:
     values:
       layout: post
       share: true
+
+# Exclude unneeded files
 exclude:
   - README.md
-#logo image
-favicon: /assets/images/logo.png
