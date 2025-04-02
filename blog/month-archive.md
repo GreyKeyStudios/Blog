@@ -18,5 +18,5 @@ permalink: /blog/month-archive/
       <a href="{{ post.url }}">{{ post.title }}</a>
       <span class="date">{{ post.date | date: "%B %d" }}</span>
     </li>
-  {% if forloop.last %}</ul>{% endunless %}
+  {% if forloop.last %}</ul>{% endif %}
 {% endfor %} 
