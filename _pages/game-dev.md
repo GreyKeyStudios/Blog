@@ -1,7 +1,6 @@
 ---
-title: "Game Dev Projects"
-permalink: /categories/game-dev/
 layout: single
-author_profile: false
+title: "Game Dev Projects"
+permalink: /game-dev/
 ---
-Coming soon.
+Coming soon: Beat 'em up, Blaxploitation game, cybersecurity game.

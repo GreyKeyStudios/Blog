@@ -1,7 +1,6 @@
 ---
-title: "AI Projects"
-permalink: /categories/ai/
 layout: single
-author_profile: false
+title: "AI Projects"
+permalink: /ai/
 ---
-Coming soon.
+Coming soon: GPT workflows, tools, and creative experiments.

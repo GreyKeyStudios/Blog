@@ -1,7 +1,6 @@
 ---
-title: "Cybersecurity Projects"
-permalink: /categories/cybersecurity/
 layout: single
-author_profile: false
+title: "Cybersecurity Projects"
+permalink: /cybersecurity/
 ---
-Coming soon.
+Coming soon: Labs, threat detection, and real-world scenarios.

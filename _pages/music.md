@@ -1,7 +1,6 @@
 ---
-title: "Music & Audio Projects"
-permalink: /categories/music/
 layout: single
-author_profile: false
+title: "Music & Audio Projects"
+permalink: /music/
 ---
-Coming soon.
+Coming soon: AI-assisted music, production breakdowns, plugin ideas.
