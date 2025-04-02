@@ -1,43 +1,48 @@
+# Remote theme setup
+remote_theme: mmistakes/so-simple-theme
+
+# Site settings
 title: "Grey Key Studios Blog"
-description: "A blog documenting cybersecurity, game dev, music, and creative tech projects."
+description: "A blog documenting cybersecurity, AI, game dev, music and creative tech projects."
 locale: en-US
 url: "https://blog.greykeystudios.com"
-baseurl: ""  # empty for root of subdomain
-logo: "/assets/images/color.png"
-date_format: "%B %-d, %Y"
+baseurl: ""  # Empty because you're using a subdomain
+logo: /assets/images/color.png
+favicon: /assets/images/color.png
+
+# Author Info
+author:
+  name: Grey Key Studios
+  picture: /assets/images/color.png
+  twitter: GreyKeyStudios
+  links:
+    - title: GitHub
+      url: https://github.com/GreyKeyStudios
+      icon: fab fa-github
+    - title: Main Site
+      url: https://greykeystudios.com
+      icon: fas fa-link
+
+# Build settings
+markdown: kramdown
+permalink: /:categories/:title/
 read_time: true
 words_per_minute: 200
 
-# Theme
-remote_theme: "mmistakes/so-simple-theme"
-skin: "/assets/css/skins/default.css"
-
 # Plugins
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-feed
   - jekyll-paginate
 
-# Markdown & Permalinks
-markdown: kramdown
-permalink: /:categories/:title/
-
-# Author
-author:
-  name: "Grey Key Studios"
-  picture: /assets/images/color.png
-  links:
-    - title: "GitHub"
-      url: "https://github.com/GreyKeyStudios"
-      icon: fab fa-github
-    - title: "Main Site"
-      url: "https://greykeystudios.com"
-      icon: fas fa-link
+# Pagination
+paginate: 5
+paginate_path: /page:num/
 
 # Footer
 footer_links:
-  - title: "Feed"
+  - title: Feed
     url: atom.xml
     icon: fas fa-rss-square
 
@@ -48,8 +53,12 @@ defaults:
       type: posts
     values:
       layout: post
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: page
+      share: true
+
+# Liquid
+liquid:
+  error_mode: strict
+
+# Exclude (optional)
+exclude:
+  - README.md

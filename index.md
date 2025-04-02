@@ -1,7 +1,6 @@
 ---
-title: "Home"
-layout: page
+layout: home
+title: 
+excerpt: "Projects, labs, and creative tech devlogs from Grey Key Studios."
 permalink: /
 ---
-
-Welcome to Grey Key Studios! Explore cybersecurity, game development, music tech, and AI.
