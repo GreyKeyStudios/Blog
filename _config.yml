@@ -1,15 +1,14 @@
-_config.yml:
-
 # Site Info
 title: "Grey Key Studios Blog"
 description: "A blog documenting cybersecurity, game dev, music, and creative tech projects."
 url: "https://blog.greykeystudios.com"
-baseurl: ""
-logo: "/assets/images/color.png"
+baseurl: ""  # leave empty for root on custom domain
 repository: "GreyKeyStudios/Blog"
+logo: "/assets/images/color.png"
 
 # Theme
 remote_theme: "mmistakes/minimal-mistakes"
+minimal_mistakes_skin: "air"  # Options: default, air, dark, contrast, neon, etc.
 
 # Plugins
 plugins:
@@ -18,20 +17,20 @@ plugins:
   - jekyll-sitemap
   - jekyll-include-cache
 
-# Navigation
+# Build settings
+include: ["_pages"]
+exclude: ["README.md", "Gemfile", "Gemfile.lock", "node_modules", "vendor"]
+
+# Navigation structure (optional but good practice)
 collections:
   posts:
     output: true
 
-# Markdown / Permalinks
+# Markdown & Permalink
 markdown: kramdown
 permalink: /:categories/:title/
 
-# Build
-include: ["_pages"]
-exclude: ["README.md", "Gemfile", "Gemfile.lock", "node_modules", "vendor"]
-
-# Defaults
+# Defaults for layout and author info
 defaults:
   - scope:
       path: "_posts"
@@ -46,6 +45,7 @@ defaults:
       layout: single
       author_profile: true
 
+# Author
 author:
   name: "Grey Key Studios"
   avatar: "/assets/images/color.png"
@@ -57,94 +57,10 @@ author:
       icon: "fas fa-link"
       url: "https://greykeystudios.com"
 
+# Enable search box
+search: true
+
+# Theme features (optional enhancement)
 theme_settings:
   header:
     title: true
-
----
-
-_data/navigation.yml:
-
-main:
-  - title: "Home"
-    url: /
-  - title: "Projects"
-    children:
-      - title: "Cybersecurity"
-        url: /cybersecurity/
-      - title: "Game Dev"
-        url: /game-dev/
-      - title: "Music & Audio"
-        url: /music/
-      - title: "AI Projects"
-        url: /ai/
-  - title: "About"
-    url: /about/
-  - title: "Links"
-    url: /links/
-
----
-
-_pages/cybersecurity.md:
----
-layout: single
-title: "Cybersecurity Projects"
-permalink: /cybersecurity/
----
-
-Coming soon: Labs, threat detection, and real-world scenarios.
-
----
-
-_pages/game-dev.md:
----
-layout: single
-title: "Game Dev Projects"
-permalink: /game-dev/
----
-
-Coming soon: Beat 'em up, Blaxploitation game, cybersecurity game, and more.
-
----
-
-_pages/music.md:
----
-layout: single
-title: "Music & Audio Projects"
-permalink: /music/
----
-
-Coming soon: AI-assisted music, production breakdowns, plugin ideas.
-
----
-
-_pages/ai.md:
----
-layout: single
-title: "AI Projects"
-permalink: /ai/
----
-
-Coming soon: Custom GPT workflows, music AI tools, creative experiments.
-
----
-
-_pages/about.md:
----
-layout: single
-title: "About"
-permalink: /about/
----
-
-Grey Key Studios is a multidisciplinary lab notebook covering cybersecurity, music, AI, and game development.
-
----
-
-_pages/links.md:
----
-layout: single
-title: "Links"
-permalink: /links/
----
-
-Useful resources and tools will be added here soon.
