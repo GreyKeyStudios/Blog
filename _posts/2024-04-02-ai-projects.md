@@ -1,7 +1,8 @@
 ---
 title: "AI Projects"
-permalink: /ai/
-layout: page
+date: 2024-04-02
+layout: post
+categories: [ai]
 ---
 
 This section will cover creative and experimental uses of artificial intelligence. 

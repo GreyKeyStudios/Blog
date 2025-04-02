@@ -1,6 +1,8 @@
 ---
 title: "Welcome to the Grey Key Blog"
 date: 2025-04-01
+layout: post
+categories: [general]
 tags: [intro, projects, creative, cybersecurity, music, devlog]
 ---
 
@@ -8,7 +10,7 @@ tags: [intro, projects, creative, cybersecurity, music, devlog]
 
 Welcome to the official blog of **Grey Key Studios** — a space where I document my creative and technical projects across cybersecurity, music production, AI development, and indie game design.
 
-This blog exists as both a **living resume** and a **personal lab notebook**. Here, you'll find deep dives into what I'm working on, what I’m learning, what goes wrong (often), and how I solve it. Every post reflects real work that you can find in my [GitHub repositories](https://github.com/yourusername), complete with code, configs, screenshots, and lessons learned.
+This blog exists as both a **living resume** and a **personal lab notebook**. Here, you'll find deep dives into what I'm working on, what I'm learning, what goes wrong (often), and how I solve it. Every post reflects real work that you can find in my [GitHub repositories](https://github.com/yourusername), complete with code, configs, screenshots, and lessons learned.
 
 ---
 
@@ -31,8 +33,8 @@ Music is therapy and expression. I document:
 - Vocal cloning and Synthesizer V workflows
 
 ### 🎮 Game & App Development  
-I’m building creative tools and games like:
-- A Blaxploitation-inspired fighting game (*Cooley’s Revenge*)
+I'm building creative tools and games like:
+- A Blaxploitation-inspired fighting game (*Cooley's Revenge*)
 - Interactive audio apps
 - Browser-based learning tools for music & cyber concepts
 
@@ -46,11 +48,11 @@ Like many creators and career-changers, I've struggled to find the "right" way t
 - **Improve** my skills
 - **Share** what I learn
 
-I’m not aiming to go viral. I’m aiming to get better, get noticed, and maybe help a few others on the way.
+I'm not aiming to go viral. I'm aiming to get better, get noticed, and maybe help a few others on the way.
 
 ---
 
-## 🧪 What’s Coming Up
+## 🧪 What's Coming Up
 
 Here's a glimpse of upcoming blog posts:
 
@@ -64,6 +66,6 @@ Each project will get its own dedicated post, with updates as I make progress.
 ---
 
 Thanks for reading.  
-Let’s build.
+Let's build.
 
 — **Grey Key Studios**

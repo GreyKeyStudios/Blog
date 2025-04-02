@@ -4,9 +4,9 @@ permalink: /projects/
 layout: page
 ---
 
-## Choose a Project Category:
+## Project Categories
 
-- [Cybersecurity Projects](/categories/cybersecurity/)
-- [Game Dev Projects](/categories/game-dev/)
-- [Music & Audio Projects](/categories/music/)
-- [AI Projects](/categories/ai/)
+- [Cybersecurity Projects](/cybersecurity/)
+- [Game Dev Projects](/game-dev/)
+- [Music & Audio Projects](/music/)
+- [AI Projects](/ai/) 

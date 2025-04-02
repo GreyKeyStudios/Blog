@@ -1,16 +1,19 @@
 - title: Home
   url: /
 
+- title: Blog
+  url: /blog/
+
 - title: Projects
   children:
     - title: Cybersecurity
-      url: /categories/cybersecurity/
+      url: /cybersecurity/
     - title: Game Dev
-      url: /categories/game-dev/
+      url: /game-dev/
     - title: Music & Audio
-      url: /categories/music/
+      url: /music/
     - title: AI Projects
-      url: /categories/ai/
+      url: /ai/
 
 - title: About
   url: /about/

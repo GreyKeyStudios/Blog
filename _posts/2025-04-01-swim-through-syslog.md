@@ -2,9 +2,9 @@
 title: "A Swim Through Syslog"
 date: 2025-04-01
 layout: post
-excerpt: "Exploring syslog monitoring and dashboarding in Splunk through a practical security lab."
-categories: [cybersecurity, splunk, labs]
+categories: [cybersecurity]
 tags: [splunk, syslog, SIEM, logging, dashboards]
+excerpt: "Exploring syslog monitoring and dashboarding in Splunk through a practical security lab."
 ---
 
 ![Splunk Dashboard Overview](/assets/images/syslog-lab/dashboard-overview.png)
@@ -68,7 +68,7 @@ Real-time log tailing helped validate pipeline setup
 
 Regex is essential for extracting command fields
 
-Splunk’s visualization and alerting tools are powerful once configured
+Splunk's visualization and alerting tools are powerful once configured
 
 Troubleshooting ingestion was the biggest time sink (auth.log visibility issues)
 
