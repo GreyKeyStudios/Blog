@@ -4,6 +4,17 @@ permalink: /projects/ai/
 layout: page
 ---
 
+## AI Projects Overview
+
 This section will cover creative and experimental uses of artificial intelligence. 
 
-Coming soon: Custom GPT workflows, AI music tools, generative visuals, and more. 
+### Current Projects
+- Custom GPT workflows
+- AI music tools
+- Generative visuals
+- Machine learning applications
+
+### Upcoming
+- AI-assisted game development
+- Natural language processing tools
+- Computer vision experiments 
