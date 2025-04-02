@@ -1,6 +1,7 @@
 ---
-layout: home
 title: "Blog"
+layout: page
 permalink: /blog/
-author_profile: false
 ---
+
+Latest posts will go here.

@@ -1,66 +1,55 @@
-# Site Info
 title: "Grey Key Studios Blog"
 description: "A blog documenting cybersecurity, game dev, music, and creative tech projects."
+locale: en-US
 url: "https://blog.greykeystudios.com"
-baseurl: ""  # leave empty for root on custom domain
-repository: "GreyKeyStudios/Blog"
+baseurl: ""  # empty for root of subdomain
 logo: "/assets/images/color.png"
+date_format: "%B %-d, %Y"
+read_time: true
+words_per_minute: 200
 
 # Theme
-remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "air"  # Options: default, air, dark, contrast, neon, etc.
+remote_theme: "mmistakes/so-simple-theme"
+skin: "/assets/css/skins/default.css"
 
 # Plugins
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-include-cache
+  - jekyll-paginate
 
-# Build settings
-include: ["_pages"]
-exclude: ["README.md", "Gemfile", "Gemfile.lock", "node_modules", "vendor"]
-
-# Navigation structure (optional but good practice)
-collections:
-  posts:
-    output: true
-
-# Markdown & Permalink
+# Markdown & Permalinks
 markdown: kramdown
 permalink: /:categories/:title/
 
-# Defaults for layout and author info
+# Author
+author:
+  name: "Grey Key Studios"
+  picture: /assets/images/color.png
+  links:
+    - title: "GitHub"
+      url: "https://github.com/GreyKeyStudios"
+      icon: fab fa-github
+    - title: "Main Site"
+      url: "https://greykeystudios.com"
+      icon: fas fa-link
+
+# Footer
+footer_links:
+  - title: "Feed"
+    url: atom.xml
+    icon: fas fa-rss-square
+
+# Defaults
 defaults:
   - scope:
       path: "_posts"
       type: posts
     values:
-      layout: single
-      author_profile: true
+      layout: post
   - scope:
       path: ""
       type: pages
     values:
-      layout: single
-      author_profile: true
-
-# Author
-author:
-  name: "Grey Key Studios"
-  avatar: "/assets/images/color.png"
-  links:
-    - label: "GitHub"
-      icon: "fab fa-github"
-      url: "https://github.com/GreyKeyStudios"
-    - label: "Main Site"
-      icon: "fas fa-link"
-      url: "https://greykeystudios.com"
-
-# Enable search box
-search: true
-
-# Theme features (optional enhancement)
-theme_settings:
-  header:
-    title: true
+      layout: page

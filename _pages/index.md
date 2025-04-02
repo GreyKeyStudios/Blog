@@ -1,17 +1,9 @@
 ---
-title: "Welcome"
-layout: splash
+title: "Grey Key Studios Blog"
+layout: page
 permalink: /
-header:
-  overlay_color: "#000"
-  overlay_filter: "0.3"
-  overlay_image: /assets/images/color.png
-  actions:
-    - label: "Read the Blog"
-      url: /posts/
-    - label: "Explore Projects"
-      url: /projects/
-excerpt: "A creative and technical blog by Grey Key Studios — featuring cybersecurity labs, game development, audio experiments, and AI tools."
-intro: 
-  - excerpt: "Follow along with our journey."
 ---
+
+Welcome to my lab notebook documenting creative technology, cybersecurity, game development, and music.
+
+[Explore Projects](./projects.md)

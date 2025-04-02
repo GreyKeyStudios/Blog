@@ -1,7 +1,11 @@
 ---
-layout: single
-title: "All Projects"
-permalink: /explore/
+title: "Projects"
+layout: page
+permalink: /projects/
 ---
 
-Explore my work across Cybersecurity, Game Development, Music & AI.
+Explore ongoing work:
+- [Cybersecurity](/categories/cybersecurity/)
+- [Game Dev](/categories/game-dev/)
+- [Music & Audio](/categories/music/)
+- [AI Projects](/categories/ai/)
