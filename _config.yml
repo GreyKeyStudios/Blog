@@ -26,6 +26,8 @@ author:
 # Build settings
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
+exclude:
+  - projects/
 read_time: true
 words_per_minute: 200
 
