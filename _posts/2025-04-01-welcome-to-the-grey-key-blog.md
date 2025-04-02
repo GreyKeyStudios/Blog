@@ -2,7 +2,7 @@
 title: "Welcome to the Grey Key Blog"
 date: 2025-04-01
 layout: post
-categories: [general]
+categories: general
 tags: [intro, projects, creative, cybersecurity, music, devlog]
 ---
 
