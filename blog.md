@@ -16,6 +16,7 @@ Here you'll find all our blog posts organized by category and date. Use the filt
 - [AI](/blog/category/ai/) - AI experiments and applications
 
 ### Archive Views
+- [All Posts](/blog/archive/) - Complete list of all posts
 - [By Year](/blog/year-archive/) - Posts organized by year
 - [By Month](/blog/month-archive/) - Posts organized by month
 
