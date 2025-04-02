@@ -62,24 +62,3 @@ liquid:
 # Exclude (optional)
 exclude:
   - README.md
-  
-#navigation
-navigation:
-  - title: "Home"
-    url: "/"
-  - title: "Projects"
-    children:
-      - title: "Cybersecurity"
-        url: /categories/cybersecurity/
-      - title: "Game Dev"
-        url: /categories/game-dev/
-      - title: "Music & Audio"
-        url: /categories/music/
-      - title: "AI Projects"
-        url: /categories/ai/
-  - title: "About"
-    url: /about/
-  - title: "Links"
-    url: /links/
-
-
