@@ -21,5 +21,7 @@ Here you'll find all our blog posts organized by category and date. Use the filt
 
 ### Recent Posts
 {% for post in site.posts limit:5 %}
+  {% if post.layout == 'post' %}
 - [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%B %d, %Y" }}
+  {% endif %}
 {% endfor %} 
