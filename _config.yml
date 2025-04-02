@@ -25,7 +25,7 @@ author:
 
 # Build settings
 markdown: kramdown
-permalink: /:categories/:title/
+permalink: /blog/:year/:month/:day/:title/
 read_time: true
 words_per_minute: 200
 
@@ -54,6 +54,11 @@ defaults:
     values:
       layout: post
       share: true
+  - scope:
+      path: "projects"
+      type: pages
+    values:
+      layout: page
 
 # Liquid
 liquid:
