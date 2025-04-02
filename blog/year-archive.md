@@ -6,17 +6,15 @@ permalink: /blog/year-archive/
 
 ## Posts by Year
 
-{% for post in site.posts %}
-  {% assign currentdate = post.date | date: "%Y" %}
-  {% if currentdate != date %}
-    {% unless forloop.first %}</ul>{% endunless %}
-    <h2 id="y{{currentdate}}">{{ currentdate }}</h2>
-    <ul>
-    {% assign date = currentdate %}
-  {% endif %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      <span class="date">{{ post.date | date: "%B %d" }}</span>
-    </li>
-  {% if forloop.last %}</ul>{% endif %}
+{% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+{% for year in postsByYear %}
+<h2 id="y{{ year.name }}">{{ year.name }}</h2>
+<ul>
+  {% for post in year.items %}
+  <li>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+    <span class="date">{{ post.date | date: "%B %d" }}</span>
+  </li>
+  {% endfor %}
+</ul>
 {% endfor %} 

@@ -6,17 +6,15 @@ permalink: /blog/month-archive/
 
 ## Posts by Month
 
-{% for post in site.posts %}
-  {% assign currentdate = post.date | date: "%B %Y" %}
-  {% if currentdate != date %}
-    {% unless forloop.first %}</ul>{% endunless %}
-    <h2 id="m{{post.date | date: "%Y%m"}}">{{ currentdate }}</h2>
-    <ul>
-    {% assign date = currentdate %}
-  {% endif %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      <span class="date">{{ post.date | date: "%B %d" }}</span>
-    </li>
-  {% if forloop.last %}</ul>{% endif %}
+{% assign postsByMonth = site.posts | group_by_exp:"post", "post.date | date: '%B %Y'" %}
+{% for month in postsByMonth %}
+<h2 id="m{{ month.name | date: '%Y%m' }}">{{ month.name }}</h2>
+<ul>
+  {% for post in month.items %}
+  <li>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+    <span class="date">{{ post.date | date: "%B %d" }}</span>
+  </li>
+  {% endfor %}
+</ul>
 {% endfor %} 
