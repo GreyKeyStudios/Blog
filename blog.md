@@ -9,7 +9,7 @@ layout: page
 Here you'll find all our blog posts organized by category and date. Use the filters below to find specific content.
 
 ### Categories
-- [All Categories](/blog/archive/) - View all blog posts
+- [General](/blog/category/general/) - General updates and announcements
 - [Cybersecurity](/blog/category/cybersecurity/) - Security research and tools
 - [Game Development](/blog/category/game-dev/) - Game dev projects and tutorials
 - [Music & Audio](/blog/category/music/) - Music production and audio tools
