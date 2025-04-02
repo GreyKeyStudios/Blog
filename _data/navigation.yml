@@ -7,13 +7,13 @@
 - title: Projects
   children:
     - title: Cybersecurity
-      url: /cybersecurity/
+      url: /projects/cybersecurity/
     - title: Game Dev
-      url: /game-dev/
+      url: /projects/game-dev/
     - title: Music & Audio
-      url: /music/
+      url: /projects/music/
     - title: AI Projects
-      url: /ai/
+      url: /projects/ai/
 
 - title: About
   url: /about/

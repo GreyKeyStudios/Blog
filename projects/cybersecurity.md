@@ -1,6 +1,6 @@
 ---
 title: "Cybersecurity Projects"
-permalink: /cybersecurity/
+permalink: /projects/cybersecurity/
 layout: page
 ---
 

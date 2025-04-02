@@ -1,6 +1,6 @@
 ---
 title: "Game Dev Projects"
-permalink: /game-dev/
+permalink: /projects/game-dev/
 layout: page
 ---
 

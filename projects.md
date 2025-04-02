@@ -6,7 +6,7 @@ layout: page
 
 ## Project Categories
 
-- [Cybersecurity Projects](/cybersecurity/)
-- [Game Dev Projects](/game-dev/)
-- [Music & Audio Projects](/music/)
-- [AI Projects](/ai/) 
+- [Cybersecurity Projects](/projects/cybersecurity/)
+- [Game Dev Projects](/projects/game-dev/)
+- [Music & Audio Projects](/projects/music/)
+- [AI Projects](/projects/ai/) 

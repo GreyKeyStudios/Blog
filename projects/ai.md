@@ -1,6 +1,6 @@
 ---
 title: "AI Projects"
-permalink: /ai/
+permalink: /projects/ai/
 layout: page
 ---
 

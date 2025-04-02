@@ -1,6 +1,6 @@
 ---
 title: "Music & Audio Projects"
-permalink: /music/
+permalink: /projects/music/
 layout: page
 ---
 
