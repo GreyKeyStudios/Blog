@@ -9,15 +9,15 @@ layout: page
 Here you'll find all our blog posts organized by category and date. Use the filters below to find specific content.
 
 ### Categories
-- [Cybersecurity](/blog/category/cybersecurity/)
-- [Game Development](/blog/category/game-dev/)
-- [Music & Audio](/blog/category/music/)
-- [AI](/blog/category/ai/)
+- [All Categories](/blog/archive/) - View all blog posts
+- [Cybersecurity](/blog/category/cybersecurity/) - Security research and tools
+- [Game Development](/blog/category/game-dev/) - Game dev projects and tutorials
+- [Music & Audio](/blog/category/music/) - Music production and audio tools
+- [AI](/blog/category/ai/) - AI experiments and applications
 
-### Archive
-- [All Posts](/blog/archive/)
-- [By Year](/blog/year-archive/)
-- [By Month](/blog/month-archive/)
+### Archive Views
+- [By Year](/blog/year-archive/) - Posts organized by year
+- [By Month](/blog/month-archive/) - Posts organized by month
 
 ### Recent Posts
 {% for post in site.posts limit:5 %}
