@@ -3,8 +3,9 @@ main:
     url: /
 
   - title: "Projects"
-    url: /projects/  # ← Add this line
     children:
+      - title: "Explore Projects"
+        url: /explore/
       - title: "Cybersecurity"
         url: /cybersecurity/
       - title: "Game Dev"

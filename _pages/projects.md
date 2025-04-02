@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "All Projects"
-permalink: /projects/
+permalink: /explore/
 ---
 
 Explore my work across Cybersecurity, Game Development, Music & AI.
