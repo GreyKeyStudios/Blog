@@ -5,6 +5,7 @@
   url: /blog/
 
 - title: Projects
+  url: /projects/
   children:
     - title: Cybersecurity
       url: /projects/cybersecurity/

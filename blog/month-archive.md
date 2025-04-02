@@ -14,6 +14,9 @@ permalink: /blog/month-archive/
     <ul>
     {% assign date = currentdate %}
   {% endif %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%B %d" }}</li>
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <span class="date">{{ post.date | date: "%B %d" }}</span>
+    </li>
   {% if forloop.last %}</ul>{% endunless %}
 {% endfor %} 
