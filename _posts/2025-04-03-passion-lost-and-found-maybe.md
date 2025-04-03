@@ -143,13 +143,13 @@ This album was initially on the back burner since i've never really made a rock 
 
 Pics:
 
-![Ice Car](/assets/images/DALLE_2025-01-28_18.38.29_-_A_sleek_futuristic_yet_classic_ice_car_appearing_as_though_it_is_sculpted_entirely_from_translucent_ice._The_car_has_smooth_aerodynamic_lines_with_.webp)
+![Ice Car](/assets/images/winter-ice-car.webp)
 
-![Ice Figure](/assets/images/DALLE_2025-01-28_18.38.36_-_A_humanoid_figure_made_entirely_of_ice_with_a_semi-translucent_body_that_refracts_light_and_appears_sculpted_from_frozen_crystal._The_figure_is_Afric.webp)
+![Ice Figure](/assets/images/winter-ice-figure.webp)
 
-![Winter Landscape](/assets/images/DALLE_2025-01-29_08.49.44_-_A_desolate_winter_landscape_under_an_overcast_sky._Snow-covered_forests_with_frost-laden_branches_stretch_into_the_distance._A_frozen_river_cracks_und.webp)
+![Winter Landscape](/assets/images/winter-landscape.webp)
 
-![Winter Morning](/assets/images/DALLE_2025-01-29_08.52.48_-_A_melancholic_winter_morning_as_dawn_breaks_casting_golden_light_over_the_frost-covered_streets._A_semi-translucent_ice_man_stands_outside_a_house_h.webp)
+![Winter Morning](/assets/images/winter-morning.webp)
 
 Video:
 
