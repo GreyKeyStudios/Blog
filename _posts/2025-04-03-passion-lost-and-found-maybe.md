@@ -2,6 +2,7 @@
 title: "Passion Lost and Found, Maybe"
 date: 2025-04-03
 layout: post
+taxonomy: [music, general]
 categories: [music, general]
 tags: [intro, projects, creative, music, venting]
 ---
