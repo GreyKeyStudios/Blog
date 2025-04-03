@@ -2,7 +2,7 @@
 title: "Passion Lost and Found, Maybe"
 date: 2025-04-03
 layout: post
-categories: music
+categories: [music, general]
 tags: [intro, projects, creative, music, venting]
 ---
 
