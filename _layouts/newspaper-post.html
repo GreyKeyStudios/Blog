@@ -1,0 +1,79 @@
+---
+layout: newspaper
+---
+
+<div class="newspaper-content">
+  <div class="main-story">
+    <h1>{{ page.title }}</h1>
+    
+    <div class="article-meta">
+      <span>By {{ site.author.name }} | {{ page.date | date: "%B %-d, %Y" }}</span>
+      {% if page.categories %}
+        <span> | Filed under: 
+        {% for category in page.categories %}
+          <a href="{{ site.url }}/blog/category/{{ category | slugify }}/">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+        </span>
+      {% endif %}
+    </div>
+    
+    {% if page.excerpt %}
+    <div class="article-excerpt">
+      <p><strong>{{ page.excerpt }}</strong></p>
+    </div>
+    {% endif %}
+    
+    <div class="post-content">
+      {{ content }}
+    </div>
+  </div>
+  
+  <div class="story-divider"></div>
+  
+  <div class="secondary-stories">
+    <div class="story-column">
+      <div class="story">
+        <h2>Related Articles</h2>
+        {% assign maxRelated = 4 %}
+        {% assign minCommonTags = 1 %}
+        {% assign maxRelatedCounter = 0 %}
+        
+        {% for post in site.posts %}
+          {% assign sameTagCount = 0 %}
+          {% assign commonTags = '' %}
+          
+          {% for category in post.categories %}
+            {% if post.url != page.url %}
+              {% if page.categories contains category %}
+                {% assign sameTagCount = sameTagCount | plus: 1 %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          
+          {% if sameTagCount >= minCommonTags %}
+            <p><a href="{{ post.url | relative_url }}">{{ post.title }}</a></p>
+            {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+            {% if maxRelatedCounter >= maxRelated %}
+              {% break %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        
+        {% if maxRelatedCounter == 0 %}
+          <p>No related articles found.</p>
+        {% endif %}
+      </div>
+    </div>
+    
+    <div class="story-column">
+      <div class="story">
+        <h2>Latest News</h2>
+        {% for post in site.posts limit:4 %}
+          {% if post.url != page.url %}
+            <p><a href="{{ post.url | relative_url }}">{{ post.title }}</a></p>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div> 

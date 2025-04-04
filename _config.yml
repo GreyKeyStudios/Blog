@@ -61,13 +61,18 @@ defaults:
       path: "_posts"
       type: posts
     values:
-      layout: post
+      layout: newspaper-post
       share: true
   - scope:
       path: "projects"
       type: pages
     values:
-      layout: page
+      layout: newspaper-page
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: newspaper-page
 
 # Liquid
 liquid:

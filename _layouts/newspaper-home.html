@@ -1,0 +1,77 @@
+---
+layout: newspaper
+---
+
+<div class="newspaper-content">
+  <div class="main-story">
+    <h1>Latest News</h1>
+    {% assign featured_post = site.posts.first %}
+    <h2><a href="{{ featured_post.url | relative_url }}">{{ featured_post.title }}</a></h2>
+    <div class="article-meta">
+      <span>{{ featured_post.date | date: "%B %-d, %Y" }}</span>
+    </div>
+    <div class="post-content">
+      {{ featured_post.excerpt }}
+      <p><a href="{{ featured_post.url | relative_url }}">Continue reading...</a></p>
+    </div>
+  </div>
+  
+  <div class="story-divider"></div>
+  
+  <div class="secondary-stories">
+    <div class="story-column">
+      {% for post in site.posts offset:1 limit:2 %}
+        <div class="story">
+          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <div class="article-meta">
+            <span>{{ post.date | date: "%B %-d, %Y" }}</span>
+          </div>
+          <p>{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
+          <p><a href="{{ post.url | relative_url }}">Continue reading...</a></p>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <div class="story-column">
+      {% for post in site.posts offset:3 limit:2 %}
+        <div class="story">
+          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <div class="article-meta">
+            <span>{{ post.date | date: "%B %-d, %Y" }}</span>
+          </div>
+          <p>{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
+          <p><a href="{{ post.url | relative_url }}">Continue reading...</a></p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+  <div class="story-divider"></div>
+  
+  <div class="main-story">
+    <h1>Featured Projects</h1>
+    <div class="secondary-stories">
+      <div class="story-column">
+        <div class="story">
+          <h2><a href="/projects/cybersecurity/">Cybersecurity Projects</a></h2>
+          <p>Explore our latest cybersecurity initiatives, including vulnerability research, secure coding practices, and penetration testing methodologies.</p>
+        </div>
+        <div class="story">
+          <h2><a href="/projects/ai/">AI Projects</a></h2>
+          <p>Delve into our artificial intelligence work, from machine learning algorithms to neural networks and data science applications.</p>
+        </div>
+      </div>
+      
+      <div class="story-column">
+        <div class="story">
+          <h2><a href="/projects/game-dev/">Game Development</a></h2>
+          <p>Check out our game development projects, featuring innovative gameplay mechanics, stunning visuals, and immersive experiences.</p>
+        </div>
+        <div class="story">
+          <h2><a href="/projects/music/">Music & Audio</a></h2>
+          <p>Listen to our music and audio projects, including sound design, music composition, and audio programming experiments.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

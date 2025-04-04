@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Base Styles */
+    body {
+      background-color: #f5f5dc; /* Aged paper color */
+      font-family: 'Playfair Display', 'Times New Roman', serif;
+      line-height: 1.6;
+      padding: 20px;
+      color: #222;
+    }
+    
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #000;
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+      padding: 20px;
+    }
+    
+    /* Header */
+    .newspaper-header {
+      text-align: center;
+      border-bottom: 3px double #000;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .newspaper-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0;
+      line-height: 1;
+    }
+    
+    .newspaper-subtitle {
+      font-style: italic;
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    
+    .newspaper-date {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+      display: inline-block;
+      padding: 5px 15px;
+      margin-top: 10px;
+    }
+    
+    /* Navigation */
+    .newspaper-nav {
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid #000;
+      border-bottom: 2px solid #000;
+      margin: 20px 0;
+    }
+    
+    .newspaper-nav a {
+      display: inline-block;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+    
+    /* Content */
+    .newspaper-content {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+    }
+    
+    .main-story {
+      grid-column: span 12;
+      margin-bottom: 30px;
+    }
+    
+    .main-story h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      font-weight: 900;
+    }
+    
+    .secondary-stories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      grid-column: span 12;
+    }
+    
+    .story-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .story {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .story h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    
+    .story p {
+      text-align: justify;
+    }
+    
+    /* Post Content */
+    .post-content {
+      column-count: 2;
+      column-gap: 40px;
+      column-rule: 1px solid #ddd;
+      text-align: justify;
+    }
+    
+    .post-content p:first-of-type::first-letter {
+      float: left;
+      font-size: 75px;
+      line-height: 60px;
+      padding-right: 8px;
+      padding-top: 4px;
+    }
+    
+    .post-content h2 {
+      column-span: all;
+      margin: 20px 0;
+      font-size: 24px;
+      border-bottom: 1px solid #000;
+      padding-bottom: 5px;
+    }
+    
+    .article-meta {
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #000;
+    }
+    
+    /* Additional newspaper styling elements */
+    .story-divider {
+      height: 1px;
+      background: #000;
+      margin: 30px 0;
+    }
+    
+    .newspaper-footer {
+      text-align: center;
+      margin-top: 50px;
+      border-top: 3px double #000;
+      padding-top: 20px;
+      font-size: 14px;
+    }
+    
+    @media (max-width: 768px) {
+      .newspaper-title {
+        font-size: 48px;
+      }
+      
+      .post-content {
+        column-count: 1;
+      }
+      
+      .secondary-stories {
+        grid-template-columns: 1fr;
+      }
+      
+      .newspaper-content {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="newspaper-header">
+      <h1 class="newspaper-title">{{ site.title }}</h1>
+      <p class="newspaper-subtitle">{{ site.description }}</p>
+      <div class="newspaper-date">{{ site.time | date: '%B %d, %Y' }}</div>
+    </header>
+    
+    <nav class="newspaper-nav">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/projects/' | relative_url }}">Projects</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/links/' | relative_url }}">Links</a>
+    </nav>
+    
+    <main>
+      {{ content }}
+    </main>
+    
+    <footer class="newspaper-footer">
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html> 

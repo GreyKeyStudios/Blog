@@ -1,0 +1,178 @@
+@import "{{ site.theme }}";
+
+/* Newspaper Styles */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+
+body {
+  background-color: #f5f5dc !important; /* Aged paper color */
+  font-family: 'Playfair Display', 'Times New Roman', serif !important;
+}
+
+.site-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 3.5em !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-align: center !important;
+  color: #000 !important;
+  margin: 0 !important;
+  padding: 0.5em 0 !important;
+  border-bottom: 4px double #000 !important;
+  line-height: 1 !important;
+}
+
+.site-description {
+  font-style: italic !important;
+  text-align: center !important;
+  font-size: 1.2em !important;
+  margin-bottom: 0 !important;
+  border-bottom: 1px solid #000 !important;
+  padding-bottom: 1em !important;
+}
+
+.site-nav {
+  border-bottom: 2px solid #000 !important;
+  border-top: 1px solid #000 !important;
+  padding: 0.5em 0 !important;
+  margin: 0 0 2em 0 !important;
+  text-align: center !important;
+}
+
+.page-title, .post-title {
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 800 !important;
+  font-size: 2.5em !important;
+  text-align: center !important;
+  margin-bottom: 0.5em !important;
+}
+
+.post {
+  column-count: 2 !important;
+  column-gap: 2em !important;
+  column-rule: 1px solid #ddd !important;
+}
+
+.entry-wrapper, .page-wrapper {
+  padding: 2em !important;
+  border: 1px solid #000 !important;
+  background: #fff !important;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1) !important;
+}
+
+.masthead {
+  background-color: #f5f5dc !important;
+  border-bottom: none !important;
+}
+
+.main-content {
+  background-color: #f5f5dc !important;
+}
+
+.newspaper-wrapper {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 1em !important;
+  background: #fff !important;
+  border: 1px solid #000 !important;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2) !important;
+}
+
+.newspaper-header {
+  text-align: center !important;
+  padding: 2em 0 1em !important;
+  border-bottom: 3px double #000 !important;
+  margin-bottom: 2em !important;
+}
+
+.newspaper-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 4em !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+}
+
+.newspaper-subtitle {
+  font-style: italic !important;
+  font-size: 1.2em !important;
+  margin: 0.5em 0 !important;
+}
+
+.newspaper-date {
+  font-size: 0.9em !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-weight: bold !important;
+}
+
+.article-content, .page-content {
+  column-count: 2 !important;
+  column-gap: 2em !important;
+  column-rule: 1px solid #ddd !important;
+  text-align: justify !important;
+}
+
+.article-content p:first-of-type::first-letter {
+  float: left !important;
+  font-size: 4em !important;
+  line-height: 0.8 !important;
+  padding-right: 0.1em !important;
+}
+
+.article-meta {
+  text-align: center !important;
+  font-style: italic !important;
+  border-bottom: 1px solid #000 !important;
+  padding-bottom: 1em !important;
+  margin-bottom: 1.5em !important;
+}
+
+.posts-grid {
+  display: grid !important;
+  grid-template-columns: repeat(12, 1fr) !important;
+  gap: 1em !important;
+  margin-top: 2em !important;
+}
+
+.post-item.feature {
+  grid-column: span 12 !important;
+  border-bottom: 2px solid #000 !important;
+  padding-bottom: 1em !important;
+  margin-bottom: 1em !important;
+}
+
+.post-item.secondary {
+  grid-column: span 6 !important;
+  border-right: 1px solid #ddd !important;
+  padding-right: 1em !important;
+}
+
+.post-item.tertiary {
+  grid-column: span 4 !important;
+}
+
+.entry-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+@media (max-width: 768px) {
+  .article-content, .page-content {
+    column-count: 1 !important;
+  }
+  
+  .posts-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .post-item.feature,
+  .post-item.secondary,
+  .post-item.tertiary {
+    grid-column: span 1 !important;
+    border-right: none !important;
+    padding-right: 0 !important;
+  }
+} 
