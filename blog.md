@@ -1,7 +1,7 @@
 ---
 title: "Blog"
 permalink: /blog/
-layout: page
+layout: newspaper-page
 ---
 
 ## All Posts

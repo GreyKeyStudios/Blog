@@ -1,6 +1,6 @@
 ---
 title: "General Posts"
-layout: category
+layout: newspaper-category
 category: general
 permalink: /blog/category/general/
 taxonomy: general

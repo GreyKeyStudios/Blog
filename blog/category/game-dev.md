@@ -1,6 +1,6 @@
 ---
 title: "Game Development Posts"
-layout: category
+layout: newspaper-category
 category: game-dev
 permalink: /blog/category/game-dev/
 ---

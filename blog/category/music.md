@@ -1,6 +1,6 @@
 ---
 title: "Music & Audio Posts"
-layout: category
+layout: newspaper-category
 category: music
 permalink: /blog/category/music/
 taxonomy: music

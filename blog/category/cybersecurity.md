@@ -1,6 +1,6 @@
 ---
 title: "Cybersecurity Posts"
-layout: category
+layout: newspaper-category
 category: cybersecurity
 permalink: /blog/category/cybersecurity/
 ---

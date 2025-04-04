@@ -1,6 +1,6 @@
 ---
 title: "All Posts"
-layout: page
+layout: newspaper-page
 permalink: /blog/archive/
 ---
 

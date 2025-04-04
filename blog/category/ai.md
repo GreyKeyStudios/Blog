@@ -1,6 +1,6 @@
 ---
 title: "AI Posts"
-layout: category
+layout: newspaper-category
 category: ai
 permalink: /blog/category/ai/
 ---
