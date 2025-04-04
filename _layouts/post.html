@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<main id="main" class="main-content" aria-label="Content">
+  <article class="newspaper-article" itemscope itemtype="https://schema.org/CreativeWork">
+    <div class="newspaper-wrapper">
+      <header class="article-header">
+        <h1 id="page-title" class="article-title" itemprop="headline">{{ page.title }}</h1>
+        {% if page.date %}
+          <div class="article-meta">
+            <span class="byline-item" itemprop="author" itemscope itemtype="https://schema.org/Person">
+              {% if site.author.name %}
+                <span itemprop="name">{{ site.author.name }}</span>
+              {% endif %}
+            </span>
+            <span class="byline-item"><span class="icon">{% include icon-calendar.svg %}</span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></span>
+            {% if page.read_time %}
+              <span class="byline-item"><span class="icon">{% include icon-stopwatch.svg %}</span>{% include read-time.html %}</span>
+            {% endif %}
+          </div>
+        {% endif %}
+        
+        {% if page.excerpt %}
+          <div class="article-excerpt">
+            <p class="lead">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+          </div>
+        {% endif %}
+      </header>
+
+      <div class="article-content" itemprop="text">
+        {{ content }}
+
+        {% if page.share %}
+          {% include social-share.html %}
+        {% endif %}
+      </div>
+      
+      {% if site.disqus.shortname %}
+        {% include disqus-comments.html %}
+      {% endif %}
+
+      {% include page-pagination.html %}
+    </div>
+  </article>
+</main> 

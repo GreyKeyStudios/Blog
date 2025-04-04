@@ -10,6 +10,13 @@ baseurl: ""  # Empty because you're using a subdomain
 logo: /assets/images/color.png
 favicon: /assets/images/color.png
 
+# Custom stylesheet
+head_scripts:
+  - /assets/css/newspaper.css
+
+# Skin
+skin: "/assets/css/newspaper"
+
 # Author Info
 author:
   name: Grey Key Studios

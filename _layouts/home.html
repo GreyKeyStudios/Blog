@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<main id="main" class="main-content" aria-label="Content">
+  <div class="newspaper-wrapper">
+    <div class="newspaper-header">
+      <h1 class="newspaper-title">{{ site.title | default: site.title }}</h1>
+      <p class="newspaper-subtitle">{{ site.description }}</p>
+      <p class="newspaper-date">{{ site.time | date: '%B %d, %Y' }}</p>
+    </div>
+
+    <article class="newspaper-content">
+      <div class="entry">
+        {{ content }}
+      </div>
+
+      <div class="posts-grid">
+        {% for post in paginator.posts limit: 5 %}
+          <div class="post-item {% cycle 'feature', 'secondary', 'secondary', 'tertiary', 'tertiary' %}">
+            <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <div class="post-meta">
+              <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+            </div>
+            {% if post.excerpt %}
+              <div class="post-excerpt">{{ post.excerpt | markdownify }}</div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      {% include pagination.html %}
+    </article>
+  </div>
+</main> 
