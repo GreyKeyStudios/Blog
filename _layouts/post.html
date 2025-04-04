@@ -16,7 +16,7 @@ layout: default
             </span>
             <span class="byline-item"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></span>
             {% if page.read_time %}
-              <span class="byline-item">{% include read-time.html %}</span>
+              <span class="byline-item">{{ page.content | strip_html | number_of_words | divided_by: site.words_per_minute }} min read</span>
             {% endif %}
           </div>
         {% endif %}
@@ -32,15 +32,15 @@ layout: default
         {{ content }}
 
         {% if page.share %}
-          {% include social-share.html %}
+          <!-- Share links removed -->
         {% endif %}
       </div>
       
       {% if site.disqus.shortname %}
-        {% include disqus-comments.html %}
+        <!-- Disqus comments removed -->
       {% endif %}
 
-      {% include page-pagination.html %}
+      <!-- Page pagination removed -->
     </div>
   </article>
 </main> 
