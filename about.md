@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: newspaper-page
 title: About
 permalink: /about/
 ---

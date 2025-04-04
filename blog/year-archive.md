@@ -1,6 +1,6 @@
 ---
 title: "Blog Archive by Year"
-layout: page
+layout: newspaper-page
 permalink: /blog/year-archive/
 ---
 

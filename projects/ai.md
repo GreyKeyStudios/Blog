@@ -1,7 +1,7 @@
 ---
 title: "AI Projects"
 permalink: /projects/ai/
-layout: page
+layout: newspaper-page
 ---
 
 ## AI Projects Overview

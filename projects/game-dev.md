@@ -1,7 +1,7 @@
 ---
-title: "Game Dev Projects"
+title: "Game Development Projects"
 permalink: /projects/game-dev/
-layout: page
+layout: newspaper-page
 ---
 
 This section features Unity game development, character concepts, and AI-assisted workflows.

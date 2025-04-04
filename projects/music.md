@@ -1,7 +1,7 @@
 ---
 title: "Music & Audio Projects"
 permalink: /projects/music/
-layout: page
+layout: newspaper-page
 ---
 
 This section showcases audio production work, plugins, AI-assisted songwriting, and music theory tools.

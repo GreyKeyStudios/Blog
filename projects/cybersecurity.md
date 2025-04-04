@@ -1,7 +1,7 @@
 ---
 title: "Cybersecurity Projects"
 permalink: /projects/cybersecurity/
-layout: page
+layout: newspaper-page
 ---
 
 This section documents labs, threat detection exercises, Splunk dashboards, and other real-world simulations.

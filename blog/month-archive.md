@@ -1,6 +1,6 @@
 ---
 title: "Blog Archive by Month"
-layout: page
+layout: newspaper-page
 permalink: /blog/month-archive/
 ---
 
