@@ -57,22 +57,42 @@ footer_links:
 
 # Defaults
 defaults:
+  # Posts default
   - scope:
       path: "_posts"
       type: posts
     values:
       layout: newspaper-post
       share: true
+  # Projects pages
   - scope:
       path: "projects"
       type: pages
     values:
       layout: newspaper-page
+  # Category pages
+  - scope:
+      path: "blog/category"
+      type: pages
+    values:
+      layout: newspaper-page
+  # Archive pages
+  - scope:
+      path: "blog"
+      type: pages
+    values:
+      layout: newspaper-page
+  # All other regular pages
   - scope:
       path: ""
       type: pages
     values:
       layout: newspaper-page
+  # Home page
+  - scope:
+      path: "index.md"
+    values:
+      layout: newspaper-home
 
 # Liquid
 liquid:

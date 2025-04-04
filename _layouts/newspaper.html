@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Special+Elite&display=swap" rel="stylesheet">
   <style>
     /* Reset */
     *, *::before, *::after {
@@ -15,11 +15,12 @@
     
     /* Base Styles */
     body {
-      background-color: #f5f5dc; /* Aged paper color */
+      background-color: #f0e6d2; /* More aged paper color */
       font-family: 'Playfair Display', 'Times New Roman', serif;
       line-height: 1.6;
       padding: 20px;
       color: #222;
+      background-image: url("data:image/png;base64,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");
     }
     
     a {
@@ -34,10 +35,40 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      background: #fff;
+      background: #f7f1e3; /* Slightly yellowed paper */
       border: 1px solid #000;
       box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
       padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Vintage paper texture overlay */
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/png;base64,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");
+      opacity: 0.1;
+      pointer-events: none;
+    }
+    
+    /* Old Newspaper Stains */
+    .container::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(111, 78, 55, 0.1) 0%, rgba(111, 78, 55, 0) 20%),
+        radial-gradient(circle at 85% 60%, rgba(111, 78, 55, 0.08) 0%, rgba(111, 78, 55, 0) 25%),
+        radial-gradient(circle at 40% 80%, rgba(111, 78, 55, 0.06) 0%, rgba(111, 78, 55, 0) 15%);
+      pointer-events: none;
     }
     
     /* Header */
@@ -49,13 +80,15 @@
     }
     
     .newspaper-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Special Elite', 'Times New Roman', serif;
       font-size: 72px;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 2px;
       margin: 0;
       line-height: 1;
+      word-spacing: 10px;
+      text-shadow: 1px 1px 0 #f7f1e3, 3px 3px 0 rgba(0,0,0,0.1);
     }
     
     .newspaper-subtitle {
@@ -91,6 +124,18 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       font-weight: bold;
+      position: relative;
+    }
+    
+    .newspaper-nav a:after {
+      content: "•";
+      position: absolute;
+      right: -10px;
+      color: #000;
+    }
+    
+    .newspaper-nav a:last-child:after {
+      content: "";
     }
     
     /* Content */
@@ -98,18 +143,41 @@
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 20px;
+      position: relative;
+    }
+    
+    /* Vintage-style decorative element */
+    .newspaper-content:before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 20px;
+      background-image: 
+        radial-gradient(circle at center, #000 1px, transparent 1px),
+        radial-gradient(circle at center, #000 1px, transparent 1px),
+        radial-gradient(circle at center, #000 1px, transparent 1px);
+      background-size: 10px 10px;
+      background-position: 0 0, 10px 0, 20px 0;
+      background-repeat: no-repeat;
+      opacity: 0.5;
     }
     
     .main-story {
       grid-column: span 12;
       margin-bottom: 30px;
+      position: relative;
     }
     
     .main-story h1 {
+      font-family: 'Special Elite', serif;
       font-size: 48px;
       line-height: 1.2;
       margin-bottom: 10px;
       font-weight: 900;
+      text-align: center;
     }
     
     .secondary-stories {
@@ -117,6 +185,21 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
       grid-column: span 12;
+      position: relative;
+    }
+    
+    /* Vertical line between columns */
+    .secondary-stories:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: #000;
+      background-image: linear-gradient(to bottom, #000 70%, transparent 30%);
+      background-size: 1px 10px;
+      opacity: 0.3;
     }
     
     .story-column {
@@ -129,9 +212,11 @@
       margin-bottom: 20px;
       padding-bottom: 20px;
       border-bottom: 1px solid #ddd;
+      position: relative;
     }
     
     .story h2 {
+      font-family: 'Special Elite', serif;
       font-size: 24px;
       margin-bottom: 10px;
       font-weight: 700;
@@ -139,14 +224,27 @@
     
     .story p {
       text-align: justify;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      text-indent: 1.5em;
+      hyphens: auto;
     }
     
     /* Post Content */
     .post-content {
       column-count: 2;
       column-gap: 40px;
-      column-rule: 1px solid #ddd;
+      column-rule: 1px dotted #888;
       text-align: justify;
+      hyphens: auto;
+    }
+    
+    .post-content p {
+      margin-bottom: 15px;
+      text-indent: 1.5em;
+      word-spacing: 0.05em;
+      letter-spacing: -0.01em;
     }
     
     .post-content p:first-of-type::first-letter {
@@ -155,6 +253,8 @@
       line-height: 60px;
       padding-right: 8px;
       padding-top: 4px;
+      font-family: 'Playfair Display', serif;
+      font-weight: bold;
     }
     
     .post-content h2 {
@@ -163,6 +263,8 @@
       font-size: 24px;
       border-bottom: 1px solid #000;
       padding-bottom: 5px;
+      font-family: 'Special Elite', serif;
+      text-align: center;
     }
     
     .article-meta {
@@ -171,6 +273,7 @@
       margin-bottom: 20px;
       padding-bottom: 10px;
       border-bottom: 1px solid #000;
+      font-size: 14px;
     }
     
     /* Additional newspaper styling elements */
@@ -178,6 +281,19 @@
       height: 1px;
       background: #000;
       margin: 30px 0;
+      position: relative;
+    }
+    
+    .story-divider:before {
+      content: "★";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #f7f1e3;
+      padding: 0 10px;
+      font-size: 16px;
+      color: #000;
     }
     
     .newspaper-footer {
@@ -186,8 +302,29 @@
       border-top: 3px double #000;
       padding-top: 20px;
       font-size: 14px;
+      color: #555;
     }
     
+    /* Vintage printing imperfections */
+    .text-imperfection {
+      display: inline-block;
+      opacity: 0.9;
+      position: relative;
+    }
+    
+    .text-imperfection:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 70%);
+      opacity: 0.1;
+      pointer-events: none;
+    }
+    
+    /* Responsive styles */
     @media (max-width: 768px) {
       .newspaper-title {
         font-size: 48px;
@@ -203,6 +340,14 @@
       
       .newspaper-content {
         display: block;
+      }
+      
+      .secondary-stories:before {
+        display: none;
+      }
+      
+      body {
+        padding: 10px;
       }
     }
   </style>
@@ -229,6 +374,7 @@
     
     <footer class="newspaper-footer">
       <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+      <p class="text-imperfection">Vol. 1, No. 1 • ESTABLISHED {{ site.time | date: '%Y' }}</p>
     </footer>
   </div>
 </body>
