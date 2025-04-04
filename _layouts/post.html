@@ -14,9 +14,9 @@ layout: default
                 <span itemprop="name">{{ site.author.name }}</span>
               {% endif %}
             </span>
-            <span class="byline-item"><span class="icon">{% include icon-calendar.svg %}</span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></span>
+            <span class="byline-item"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></span>
             {% if page.read_time %}
-              <span class="byline-item"><span class="icon">{% include icon-stopwatch.svg %}</span>{% include read-time.html %}</span>
+              <span class="byline-item">{% include read-time.html %}</span>
             {% endif %}
           </div>
         {% endif %}
