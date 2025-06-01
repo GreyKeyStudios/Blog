@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-06-01T17:20:11-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Grey Key Studios Blog</title><subtitle>A blog documenting cybersecurity, AI, game dev, music and creative tech projects.</subtitle><author><name>Grey Key Studios</name></author><entry><title type="html">Threat Intel Automation</title><link href="http://localhost:4000/blog/2025/05/02/threat-intel-automation/" rel="alternate" type="text/html" title="Threat Intel Automation" /><published>2025-05-02T00:00:00-05:00</published><updated>2025-05-02T00:00:00-05:00</updated><id>http://localhost:4000/blog/2025/05/02/threat-intel-automation</id><content type="html" xml:base="http://localhost:4000/blog/2025/05/02/threat-intel-automation/"><![CDATA[<hr />
+<p>title: “Automated Threat Intelligence with Python”
+date: 2025-05-02
+categories: [Cybersecurity, Threat Intelligence]
+tags: [python, APIs, threat-data, security-automation]
+—</p>
+
+<h1 id="️-threat-intel-project-building-an-automated-threat-feed-harvester">🕵🏾‍♂️ Threat Intel Project: Building an Automated Threat Feed Harvester</h1>
+
+<p><strong>Part of the Cybersecurity Projects series.</strong><br />
+In this post, I’ll break down how I built a Python-based automation tool to collect and log threat intelligence from multiple sources — specifically, VirusTotal, AlienVault OTX, and AbuseIPDB.</p>
+
+<p>The goal was simple:<br />
+🎯 Build a script that could pull data from real-world threat feeds and save it locally for analysis or future use.</p>
+
+<hr />
+
+<h2 id="-why-threat-intelligence">🧠 Why Threat Intelligence?</h2>
+
+<p>Threat intelligence is a critical pillar in cybersecurity. It’s what gives SOC teams the edge — knowing what IPs, hashes, or domains are up to no good <em>before</em> they reach your network. While there are expensive commercial solutions, most of these sources offer public APIs, and with a little Python, we can tap directly into them ourselves.</p>
+
+<p>This project helped me learn:</p>
+<ul>
+  <li>How to work with REST APIs</li>
+  <li>How to safely handle and log sensitive data</li>
+  <li>How to automate data collection from multiple threat sources</li>
+</ul>
+
+<hr />
+
+<h2 id="️-tools--data-sources">🛠️ Tools &amp; Data Sources</h2>
+
+<p>Here are the threat intel feeds I integrated:</p>
+
+<ul>
+  <li>🔬 <strong>VirusTotal</strong>: File hash and domain reputation service.</li>
+  <li>🛰️ <strong>AlienVault OTX</strong>: Community-powered threat indicators (IOCs).</li>
+  <li>🛡️ <strong>AbuseIPDB</strong>: A growing blacklist of malicious IPs based on community reports.</li>
+</ul>
+
+<p>All of these platforms offer free API access with usage limits.</p>
+
+<hr />
+
+<h2 id="-how-it-works">🧪 How It Works</h2>
+
+<h3 id="1--project-structure">1. 📁 Project Structure</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Threat-Intelligence/
+├── src/
+│   ├── vt_query.py        <span class="c"># VirusTotal logic</span>
+│   ├── otx_query.py       <span class="c"># AlienVault logic</span>
+│   ├── abuseipdb_query.py <span class="c"># AbuseIPDB logic</span>
+│   └── main.py            <span class="c"># Orchestrates the full run</span>
+├── .env.example           <span class="c"># API key template</span>
+├── requirements.txt       <span class="c"># Python deps (requests, python-dotenv, etc.)</span>
+├── README.md              <span class="c"># Project documentation</span>
+</code></pre></div></div>
+
+<h3 id="2--secure-api-access">2. 🔑 Secure API Access</h3>
+
+<p>To avoid hardcoding sensitive keys, I used a <code class="language-plaintext highlighter-rouge">.env</code> file (ignored by Git). Here’s what the template looks like:</p>
+
+<pre><code class="language-env">VT_API_KEY=your_virustotal_key
+OTX_API_KEY=your_otx_key
+ABUSEIPDB_API_KEY=your_abuseipdb_key
+</code></pre>
+
+<h3 id="3--output">3. 📦 Output</h3>
+
+<p>Each module stores results in:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">results/virustotal.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">results/otx.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">results/abuseipdb.json</code></li>
+</ul>
+
+<p>There’s also support for saving in CSV format for those who prefer Excel-style review.</p>
+
+<hr />
+
+<h2 id="-screenshots-coming-soon">📸 Screenshots (Coming Soon)</h2>
+
+<p>I’ll be adding screenshots of:</p>
+
+<ul>
+  <li>API responses in JSON format</li>
+  <li>Terminal output after running the main script</li>
+  <li>Sample results in Excel</li>
+</ul>
+
+<hr />
+
+<h2 id="-lessons-learned">🧩 Lessons Learned</h2>
+
+<ul>
+  <li>Some APIs rate-limit hard. Solution: rotate queries or introduce <code class="language-plaintext highlighter-rouge">time.sleep()</code>.</li>
+  <li>OTX gives a lot of raw data — parsing and extracting useful fields was key.</li>
+  <li>I used logging instead of <code class="language-plaintext highlighter-rouge">print()</code> to track runs and errors in production-style output.</li>
+</ul>
+
+<hr />
+
+<h2 id="-future-enhancements">🚀 Future Enhancements</h2>
+
+<ul>
+  <li>Add Shodan or URLScan as additional sources</li>
+  <li>Convert it into a CLI tool with argument parsing</li>
+  <li>Build a basic dashboard to visualize results using Flask or Streamlit</li>
+  <li>Schedule as a daily cron job for passive data collection</li>
+</ul>
+
+<hr />
+
+<h2 id="-repo-link">📎 Repo Link</h2>
+
+<p>All code and instructions are in the GitHub repo:<br />
+<a href="https://github.com/GreyKeyStudios/CyberSecurity-Projects/tree/main/Threat-Intelligence">https://github.com/GreyKeyStudios/CyberSecurity-Projects/tree/main/Threat-Intelligence</a></p>]]></content><author><name>Grey Key Studios</name></author><summary type="html"><![CDATA[title: “Automated Threat Intelligence with Python” date: 2025-05-02 categories: [Cybersecurity, Threat Intelligence] tags: [python, APIs, threat-data, security-automation] —]]></summary></entry><entry><title type="html">Passion Lost and Found, Maybe</title><link href="http://localhost:4000/blog/2025/04/03/passion-lost-and-found-maybe/" rel="alternate" type="text/html" title="Passion Lost and Found, Maybe" /><published>2025-04-03T00:00:00-05:00</published><updated>2025-04-03T00:00:00-05:00</updated><id>http://localhost:4000/blog/2025/04/03/passion-lost-and-found-maybe</id><content type="html" xml:base="http://localhost:4000/blog/2025/04/03/passion-lost-and-found-maybe/"><![CDATA[<h1 id="music--audio-projects">Music &amp; Audio Projects</h1>
+
+<p><strong>Songs, tools, and experiments in original production.</strong></p>
+
+<p>This post is a brief synopsis of my journey back into music and a preview of some upcoming projects.</p>
+
+<hr />
+
+<h3 id="a-personal-journey">A Personal Journey</h3>
+
+<p>Music has always been my main passion. I’ve been creating music since I was a teenager, but after a few personal tragedies, I took a long break. I eventually got back into it—tentatively. I created a fictional label and artist roster to help me explore different sounds and genres without being tied down to a single identity.</p>
+
+<p>The first album I released was a mixed bag of old beats I’d been sitting on. It was rushed—more of a tribute to my mom and cousin Quincy. My mother nurtured the creative spirit in me early and always did her best to keep something musical around me. Quincy was the biggest supporter of my music, and was my greatest teacher when it came to beat-making unbeknownst to everyone. He was murdered in 2011, and his death marked the start of a long period of depression and anxiety that still lingers today.</p>
+
+<p>I released the project on my mom’s birthday. She passed from cancer two years later, and sadly never got to hear the album.</p>
+
+<hr />
+
+<h3 id="losing-the-spark">Losing the Spark</h3>
+
+<p>From 2015 to 2024, my creative output slowed to a crawl. Where I used to make five beats a day in high school, now I couldn’t even finish one. A hard drive crash wiped out most of my sample-based catalog—over 2,000 beats. I tried to rebuild from scratch, avoiding samples, but nothing felt right.</p>
+
+<p>My anxiety made it nearly impossible to create. Some days I’d force out a track, but it always sounded “off” to me. After the loss of my mother, father and cousin, a bad breakup and the loss of a child, I stopped making music entirely.</p>
+
+<p>I attempted a comeback in 2020 during quarantine—right after a full-blown mental breakdown in 2019. It was rough, but it planted a seed. In the past year or two, I’ve slowly become grounded again. Now, I’m finally creating with purpose.</p>
+
+<hr />
+
+<h3 id="why-this-blog-exists">Why This Blog Exists</h3>
+
+<p>This blog is part diary, part digital lab notebook. It’s where I’ll document my return to music and my progress in technology—particularly in IT, which I got into <em>because</em> of music.</p>
+
+<p>I created <strong>Grey Key Studios</strong> as the fictional label housing all my pseudonyms and musical styles. It’s not a real label (yet), just a central hub for everything I make.</p>
+
+<hr />
+
+<h2 id="artist-roster">Artist Roster</h2>
+
+<p>Each persona serves a different genre or concept. Here’s a breakdown:</p>
+
+<h3 id="the-beautiful-uglies--neo-soul--psychedelic--experimental"><strong>The Beautiful Uglies</strong> — Neo Soul / Psychedelic / Experimental</h3>
+
+<ul>
+  <li>The original project name for my first album.</li>
+  <li>A fictional “band” that could one day become real.</li>
+  <li>Musical vibe: raw, genre-blending, emotionally charged.</li>
+</ul>
+
+<p>Bio: This is the pseudonym I released my first album under. I was originally going to release everything under that name. I think it was the way the first album was non-cohesive that made me create the other artists when i got back into music.</p>
+
+<p>It was always supposed to be a fictional band that could morph into a real band, and it still is really. I am an intermediate keyboardist and struggle with guitar, bass and drums so making something that sounds like a band is really hard but I try lol. Hopefully one day I will actually have a band of my own.</p>
+
+<h3 id="mr-e--"><strong>Mr. E.</strong> — ???</h3>
+
+<ul>
+  <li>Say it fast 😉</li>
+  <li>Mysterious persona for unknown vibes.</li>
+</ul>
+
+<p>Bio:???</p>
+
+<h3 id="mic-titan--hip-hop-instrumentals--remixes"><strong>Mic Titan</strong> — Hip Hop Instrumentals / Remixes</h3>
+
+<ul>
+  <li>My first producer and rap name.</li>
+  <li>Retired after my cousin’s death but revived for future boom-bap and sample-flip projects.</li>
+</ul>
+
+<p>Bio: This was my first producer name, It doubled as my rap name back when i thought i could rap lol. I gave up that name around the same time my cousin died. I just didn’t like the name anymore and hip hop’s coffin was already being lowered so i planned to go a different route.</p>
+
+<p>That’s when The Beautiful Uglies was created shortly before he died. I plan to start making hip hop beats again with and without sample. Now that tools like Tracklib are around i plan to flip something crazy hopefully.</p>
+
+<h3 id="walton-grey--post-rock--bedroom-pop"><strong>Walton Grey</strong> — Post-Rock / Bedroom Pop</h3>
+
+<ul>
+  <li>My “experimental indie” outlet.</li>
+  <li>Inspired by Stereolab, Tortoise, The Sea and Cake, and similar artists.</li>
+  <li>I’ll be “singing” here—thanks, AI.</li>
+</ul>
+
+<p>Bio: While i was away from making music I think it made me a better fan. I started listening to more genres of music and one of the ones I fell in love with was rock. There were a few rock songs that I liked when i was younger but it wasn’t in my regular rotation. I did discover a lot of great older stuff looking for sampled when I was younger but nothing that I would bump daily. I discovered so many artists that amaze me from so many different genres.</p>
+
+<p>Back in 2007 I really got into Post rock with groups like Stereolab, Tortoise, The Sea and Cake, and The High Llamas. There were a few other groups that I liked but those were the stand outs and got heavy rotation.  During the long hiatus i’ve found other groups outside of my elite 4 of more modern rock listed above. too many to list.</p>
+
+<p>It became one of my favorite genres. The same things that I like about hip hop and jazz are present in a lot of this music. Really I like almost anything jazz influenced, so when I say rock it’s probably not the rock you’re thinking of lol. I also plan to sing on the Walton Grey projects so wish me the best of luck cause I don’t sing, so with the power of AI I might be able to make my terrible voice work lol.</p>
+
+<h3 id="adwo-nyumbani--jazz--jazz-fusion-pronounced-ahjo"><strong>Adwo Nyumbani</strong> — Jazz / Jazz Fusion (Pronounced “AHJO”)</h3>
+
+<ul>
+  <li>This project is calm, meditative, and hopefully convincing thanks to tools like vHorns.</li>
+</ul>
+
+<p>Bio: Jazz has always been in a rotating spot of 1A and 1B with Hip Hop for my favorite genre of music. I hated Jazz up until i was 11 years old. I was listening to Jazz 88 FM and heard a song that blew my mind. i’ve been a jazz fan ever since.</p>
+
+<p>I’ve tried to create jazz since i start making music but never had a band. with my limited skills its pretty hard to make realistic sounding jazz in a DAW. but with modern plugins i think i can at least if not make it sound real. make it sound Jazz.</p>
+
+<h3 id="the-bobbie-backfat-band--funk"><strong>The Bobbie Backfat Band</strong> — Funk</h3>
+
+<ul>
+  <li>Because I needed a funk band. Might only release one album, but it’ll be funky.</li>
+</ul>
+
+<p>Bio: TBD</p>
+
+<h3 id="the-broken-shortcuts--covers"><strong>The Broken Shortcuts</strong> — Covers</h3>
+
+<ul>
+  <li>A place for covers I’ve always wanted to make across different genres.</li>
+</ul>
+
+<p>Bio: TDB</p>
+
+<p>you can find the “real” bios for these artists on my website greykeystudios.com.</p>
+
+<hr />
+
+<h2 id="upcoming-projects">Upcoming Projects</h2>
+
+<p>Here’s what I’m working on right now:</p>
+
+<hr />
+
+<h3 id="-private-karate">🎵 <em>Private Karate</em></h3>
+
+<p><strong>Artist:</strong> Walton Grey</p>
+
+<p><strong>Theme:</strong> A musical battle with anxiety and depression</p>
+
+<ul>
+  <li>24 songs written, aiming for 10–12 on the final album</li>
+  <li>Rock-inspired with vocals (yes, I’m singing)</li>
+</ul>
+
+<p>Snippet:</p>
+
+<audio controls="">
+  <source src="/assets/audio/Golden_Diamond.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+
+<p>This album was initially on the back burner since i’ve never really made a rock project before, but the songs just kept coming out. I’m up to 24 tracks written and I hope to dwindle it down to the best 10-12. I will be “singing” on the Walton Grey projects so though most of the music beds are finished and lyrics written, the vocals remain to be recorded. Still a ways before it’s out but it’s the closest to completion.</p>
+
+<hr />
+
+<h3 id="-winter--music-video-ai-generated">🎥 <em>Winter – Music Video (AI-Generated)</em></h3>
+
+<p><strong>Tools Used:</strong> Suno, Sora, NightCafe, Trellis</p>
+
+<ul>
+  <li>A track from <em>Private Karate</em> turned into a visual</li>
+  <li>Winter is personified as an icy anti-hero that returns each year to haunt the town</li>
+</ul>
+
+<p>Pics:</p>
+
+<p><img src="/assets/images/winter-ice-car.webp" alt="Ice Car" /></p>
+
+<p><img src="/assets/images/winter-ice-figure.webp" alt="Ice Figure" /></p>
+
+<p><img src="/assets/images/winter-landscape.webp" alt="Winter Landscape" /></p>
+
+<p><img src="/assets/images/winter-morning.webp" alt="Winter Morning" /></p>
+
+<p>Video:</p>
+
+<video controls="">
+  <source src="/assets/video/20250128_1830_Haunting_Winter_Landscapes_storyboard_01jjqqewajfjnrefh786pmn17m.mp4" type="video/mp4" />
+  Your browser does not support the video element.
+</video>
+
+<video controls="">
+  <source src="/assets/video/20250128_1842_Futuristic_Ice_Car_storyboard_01jjqr5774esrs52nd7971rgpz.mp4" type="video/mp4" />
+  Your browser does not support the video element.
+</video>
+
+<video controls="">
+  <source src="/assets/video/20250129_0930_Empty_Winter_Street_storyboard_01jjsaxzbhes384zh6zbhqwyhb.mp4" type="video/mp4" />
+  Your browser does not support the video element.
+</video>
+
+<p>There is a song on the Private Karate Album where Winter is a person who comes to town every year and terrorizes the place lol. I decided to try and make a music video for it with AI.</p>
+
+<hr />
+
+<h3 id="-untitled-80s-album">🎸 <em>Untitled 80s Album</em></h3>
+
+<p><strong>Artist:</strong> Walton Grey</p>
+
+<p><strong>Vibe:</strong> 80s nostalgia</p>
+
+<ul>
+  <li>Touching genres like synth-pop, R&amp;B, and lo-fi sci-fi</li>
+  <li>No lyrics yet, but strong progress on the instrumentals</li>
+</ul>
+
+<p>Snippet:</p>
+
+<audio controls="">
+  <source src="/assets/audio/cruisin_USA.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+
+<p>I have 3 Walton Grey projects in the works. a rock album, this one with more 80s aesthetic, and a neo soul joint project with The Beautiful Uglies. Since the rock project has been coming along so well I haven’t written any lyrics for this one, but i made a good amount of music for it. I’ll try to touch a few 80s genres from pop, to soul, to r&amp;b, to whatever that weird scifi movie intro music from that time was lol.</p>
+
+<hr />
+
+<h3 id="-calm-home">🎷 <em>Calm Home</em></h3>
+
+<p><strong>Artist:</strong> Adwo Nyumbani</p>
+
+<p><strong>Vibe:</strong> Chill, mellow jazz</p>
+
+<ul>
+  <li>Hoping to simulate a live feel with plugins like vHorns</li>
+</ul>
+
+<p>Snippet:</p>
+
+<audio controls="">
+  <source src="/assets/audio/adjo_doo_doot_horn.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+
+<hr />
+
+<h3 id="-midnight">🌙 <em>Midnight</em></h3>
+
+<p><strong>Artist:</strong> The Beautiful Uglies</p>
+
+<p><strong>Concept:</strong> A journey through each hour of the night</p>
+
+<ul>
+  <li>Each track will be named after a specific hour (e.g., 1:00 AM, 3:45 AM)</li>
+</ul>
+
+<p>Snippet:</p>
+
+<audio controls="">
+  <source src="/assets/audio/False_Nostalgia.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+
+<hr />
+
+<h3 id="-games-on-channel-3">🕹 <em>Games On Channel 3</em></h3>
+
+<p><strong>Artist:</strong> Mr. E</p>
+
+<p><strong>Concept:</strong> SNES soundfonts + original compositions</p>
+
+<ul>
+  <li>Like a lost retro game soundtrack</li>
+</ul>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ut_DfKv6yos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<hr />
+
+<h3 id="-soundtrack-for-an-unmade-film-10th-anniversary">🌀 <em>Soundtrack for an Unmade Film (10th Anniversary)</em></h3>
+
+<p><strong>Artist:</strong> The Beautiful Uglies</p>
+
+<p><strong>Concept:</strong> The first project, remastered and re-released</p>
+
+<ul>
+  <li>A raw, genre-defying mix of early beats and emotions………(lol)</li>
+</ul>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/I2Ce7rX1RQU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>My first album, remastered (as best as I could) and re-released on its 10th anniversary. It was a mess—but it was honest.</p>
+
+<h3 id="-destination-terra-gaia-album">🌀 Destination: Terra Gaia <em>Album</em></h3>
+
+<p><strong>Artist:</strong> Mr. E</p>
+
+<p><strong>Concept:</strong> Mr. E embarks on a planet of the apes like journey on a planet run by robots.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ePW9Xet9q74" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>This is the First Mr. E release. I used public domain samples and AI voiceovers to tell a story across the tracks. I’ll eventually add visuals to match.</p>
+
+<h3 id="-1899-waltz-single">🎷 1899 Waltz-Single</h3>
+
+<p><strong>Artist:</strong> Adwo Nyumbani</p>
+
+<p><strong>Vibe:</strong> Chill, mellow jazz, breakbeat</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kv5gJI9D800" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>This is the first thing released from Adwo Nyumbani. It wasn’t as traditional as it was intended to be when i started making it but I figured instead of dwelling trying to make this one thing perfect. I should probably keep it moving because i have a lot of music to make.</p>
+
+<hr />
+
+<h2 id="whats-next">What’s Next?</h2>
+
+<p>There’s more in the works—including production tools and educational projects. I’ll document everything here, one post at a time.</p>]]></content><author><name>Grey Key Studios</name></author><category term="music" /><category term="general" /><category term="intro" /><category term="projects" /><category term="creative" /><category term="music" /><category term="venting" /><summary type="html"><![CDATA[Music &amp; Audio Projects]]></summary></entry><entry><title type="html">A Swim Through Syslog</title><link href="http://localhost:4000/blog/2025/04/01/swim-through-syslog/" rel="alternate" type="text/html" title="A Swim Through Syslog" /><published>2025-04-01T00:00:00-05:00</published><updated>2025-04-01T00:00:00-05:00</updated><id>http://localhost:4000/blog/2025/04/01/swim-through-syslog</id><content type="html" xml:base="http://localhost:4000/blog/2025/04/01/swim-through-syslog/"><![CDATA[<p><img src="/assets/images/syslog-lab/dashboard-overview.png" alt="Splunk Dashboard Overview" /></p>
+
+<h2 id="-what-this-project-was">🧠 What This Project Was</h2>
+
+<p>This post walks through a Splunk syslog monitoring lab I built as part of my cybersecurity learning journey. The goal was to simulate a mini-SOC environment and get hands-on with log ingestion, parsing, and visualizations using Splunk.</p>
+
+<h2 id="️-tools-used">🛠️ Tools Used</h2>
+
+<ul>
+  <li><strong>Splunk Enterprise</strong> (Free Trial)</li>
+  <li><strong>Kali Linux</strong> VM</li>
+  <li><strong>Syslog sources</strong>: <code class="language-plaintext highlighter-rouge">/var/log/auth.log</code>, <code class="language-plaintext highlighter-rouge">/var/log/syslog</code></li>
+  <li><strong>Dashboard Studio (Classic &amp; Modern panels)</strong></li>
+</ul>
+
+<h2 id="-project-goals">🔍 Project Goals</h2>
+
+<ul>
+  <li>Ingest and monitor syslog + auth logs</li>
+  <li>Create dashboards for:
+    <ul>
+      <li>Failed login attempts</li>
+      <li>Sudo command activity</li>
+      <li>Event trends by source</li>
+    </ul>
+  </li>
+  <li>Generate test log events and confirm ingestion</li>
+</ul>
+
+<h2 id="-dashboard-panels">📸 Dashboard Panels</h2>
+
+<h3 id="-1-failed-login-attempts">🔑 1. Failed Login Attempts</h3>
+
+<p>Bar chart showing failed logins by user and host.</p>
+
+<p><img src="/assets/images/syslog-lab/failed-login-atempts-dashboard.png" alt="Failed Login Attempts" /></p>
+
+<h3 id="-2-sudo-commands-executed">🧾 2. Sudo Commands Executed</h3>
+
+<p>Table of executed sudo commands with counts.</p>
+
+<p><img src="/assets/images/syslog-lab/Sudo-Commands-Dashboard.png" alt="Sudo Commands" /></p>
+
+<h3 id="-3-live-event-trends">📈 3. Live Event Trends</h3>
+
+<p>Line graph showing syslog event frequency over time.</p>
+
+<p><img src="/assets/images/syslog-lab/syslog-events-dashboard.png" alt="Event Trends" /></p>
+
+<h2 id="-key-search-queries">🔍 Key Search Queries</h2>
+
+<p>Here are the actual Splunk queries powering these panels:</p>
+
+<h3 id="-failed-logins">🔐 Failed Logins</h3>
+
+<p>```spl
+index=* sourcetype=linux_secure “Failed password”
+| stats count by user, host</p>
+
+<p>index=* source=”/var/log/auth.log” “sudo”
+| rex “COMMAND=(?<command />.*)”
+| stats count by user, command</p>
+
+<p>🧠 Lessons Learned
+Real-time log tailing helped validate pipeline setup</p>
+
+<p>Regex is essential for extracting command fields</p>
+
+<p>Splunk’s visualization and alerting tools are powerful once configured</p>
+
+<p>Troubleshooting ingestion was the biggest time sink (auth.log visibility issues)</p>
+
+<p>✅ Next Steps
+Add Splunk alerts for brute-force attempts</p>
+
+<p>Monitor DNS or iptables logs</p>
+
+<p>Export logs to another SIEM like Wazuh or Graylog</p>
+
+<p>This lab was one of the most hands-on and visual parts of my security learning journey so far.</p>]]></content><author><name>Grey Key Studios</name></author><category term="cybersecurity" /><category term="splunk" /><category term="syslog" /><category term="SIEM" /><category term="logging" /><category term="dashboards" /><summary type="html"><![CDATA[Exploring syslog monitoring and dashboarding in Splunk through a practical security lab.]]></summary></entry><entry><title type="html">Welcome to the Grey Key Blog</title><link href="http://localhost:4000/blog/2025/04/01/welcome-to-the-grey-key-blog/" rel="alternate" type="text/html" title="Welcome to the Grey Key Blog" /><published>2025-04-01T00:00:00-05:00</published><updated>2025-04-01T00:00:00-05:00</updated><id>http://localhost:4000/blog/2025/04/01/welcome-to-the-grey-key-blog</id><content type="html" xml:base="http://localhost:4000/blog/2025/04/01/welcome-to-the-grey-key-blog/"><![CDATA[<h1 id="welcome-to-the-grey-key-blog">Welcome to the Grey Key Blog</h1>
+
+<p>Welcome to the official blog of <strong>Grey Key Studios</strong> — a space where I document my creative and technical projects across cybersecurity, music production, AI development, and indie game design.</p>
+
+<p>This blog exists as both a <strong>living resume</strong> and a <strong>personal lab notebook</strong>. Here, you’ll find deep dives into what I’m working on, what I’m learning, what goes wrong (often), and how I solve it. Every post reflects real work that you can find in my <a href="https://github.com/yourusername">GitHub repositories</a>, complete with code, configs, screenshots, and lessons learned.</p>
+
+<hr />
+
+<h2 id="-what-this-blog-covers">🎯 What This Blog Covers</h2>
+
+<p>This blog will cover three major areas:</p>
+
+<h3 id="-cybersecurity-projects">🔐 Cybersecurity Projects</h3>
+<p>I’m currently studying for certifications and building projects to break into the field. These include:</p>
+<ul>
+  <li>SOC dashboards (like the Splunk syslog monitoring lab)</li>
+  <li>Threat detection labs</li>
+  <li>Log parsing scripts</li>
+  <li>Infrastructure as Code</li>
+</ul>
+
+<h3 id="-music--ai-experiments">🎵 Music &amp; AI Experiments</h3>
+<p>Music is therapy and expression. I document:</p>
+<ul>
+  <li>Original songs (lyrics, production, video)</li>
+  <li>Music education tools built with AI</li>
+  <li>VST plugin development</li>
+  <li>Vocal cloning and Synthesizer V workflows</li>
+</ul>
+
+<h3 id="-game--app-development">🎮 Game &amp; App Development</h3>
+<p>I’m building creative tools and games like:</p>
+<ul>
+  <li>A Blaxploitation-inspired fighting game (<em>Cooley’s Revenge</em>)</li>
+  <li>Interactive audio apps</li>
+  <li>Browser-based learning tools for music &amp; cyber concepts</li>
+</ul>
+
+<hr />
+
+<h2 id="-why-im-doing-this">🚧 Why I’m Doing This</h2>
+
+<p>Like many creators and career-changers, I’ve struggled to find the “right” way to showcase what I know. I’m not a traditional resume kind of person — I learn by doing. This blog lets me:</p>
+<ul>
+  <li><strong>Document</strong> my process</li>
+  <li><strong>Show</strong> my work</li>
+  <li><strong>Improve</strong> my skills</li>
+  <li><strong>Share</strong> what I learn</li>
+</ul>
+
+<p>I’m not aiming to go viral. I’m aiming to get better, get noticed, and maybe help a few others on the way.</p>
+
+<hr />
+
+<h2 id="-whats-coming-up">🧪 What’s Coming Up</h2>
+
+<p>Here’s a glimpse of upcoming blog posts:</p>
+
+<ul>
+  <li>✅ <strong>Splunk Syslog Monitoring Lab</strong> (SOC-style dashboard on Kali Linux)</li>
+  <li>🎛️ <strong>Building an AI Music Plugin with JUCE + Web Tech</strong></li>
+  <li>👊🏾 <strong>Designing Characters for a 70s-Style Fighting Game</strong></li>
+  <li>🔐 <strong>Threat Detection with Python &amp; Docker</strong></li>
+</ul>
+
+<p>Each project will get its own dedicated post, with updates as I make progress.</p>
+
+<hr />
+
+<p>Thanks for reading.<br />
+Let’s build.</p>
+
+<p>— <strong>Grey Key Studios</strong></p>]]></content><author><name>Grey Key Studios</name></author><category term="general" /><category term="intro" /><category term="projects" /><category term="creative" /><category term="cybersecurity" /><category term="music" /><category term="devlog" /><summary type="html"><![CDATA[Welcome to the Grey Key Blog]]></summary></entry></feed>

@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threat Intel Automation | Grey Key Studios Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Special+Elite&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Base Styles */
+    body {
+      background-color: #e0d6c2; /* Even more aged paper color */
+      font-family: 'Playfair Display', 'Times New Roman', serif;
+      line-height: 1.6;
+      padding: 20px;
+      color: #111;
+      background-image: url("data:image/png;base64,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");
+    }
+    
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #f1e7cc; /* Even more yellowed paper */
+      border: 1px solid #763c28;
+      box-shadow: 8px 8px 20px rgba(0,0,0,0.3);
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Vintage paper texture overlay */
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/png;base64,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");
+      opacity: 0.2;
+      pointer-events: none;
+    }
+    
+    /* Old Newspaper Stains - enhanced */
+    .container::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(101, 67, 33, 0.2) 0%, rgba(101, 67, 33, 0) 20%),
+        radial-gradient(circle at 85% 60%, rgba(101, 67, 33, 0.15) 0%, rgba(101, 67, 33, 0) 25%),
+        radial-gradient(circle at 40% 80%, rgba(101, 67, 33, 0.18) 0%, rgba(101, 67, 33, 0) 15%),
+        radial-gradient(circle at 75% 15%, rgba(101, 67, 33, 0.12) 0%, rgba(101, 67, 33, 0) 20%),
+        radial-gradient(circle at 15% 85%, rgba(101, 67, 33, 0.14) 0%, rgba(101, 67, 33, 0) 25%),
+        radial-gradient(circle at 65% 40%, rgba(101, 67, 33, 0.06) 0%, rgba(101, 67, 33, 0) 30%);
+      pointer-events: none;
+    }
+    
+    /* Coffee stain effect - random positions */
+    .coffee-stain {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(139, 69, 19, 0.12) 0%, rgba(139, 69, 19, 0.03) 60%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .coffee-stain:nth-child(1) {
+      top: 20%;
+      right: 5%;
+      width: 90px;
+      height: 90px;
+      transform: rotate(5deg);
+    }
+    
+    .coffee-stain:nth-child(2) {
+      bottom: 15%;
+      left: 8%;
+      width: 60px;
+      height: 60px;
+      transform: rotate(-8deg);
+    }
+    
+    .coffee-stain:nth-child(3) {
+      top: 70%;
+      right: 12%;
+      transform: rotate(12deg);
+    }
+    
+    /* Water damage effect */
+    .water-damage {
+      position: absolute;
+      width: 150px;
+      height: 100px;
+      background: linear-gradient(to right, rgba(160, 82, 45, 0.03) 0%, rgba(160, 82, 45, 0.08) 50%, rgba(160, 82, 45, 0.03) 100%);
+      pointer-events: none;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    
+    .water-damage:nth-child(1) {
+      top: -20px;
+      left: 30%;
+      transform: rotate(45deg);
+      width: 200px;
+      height: 120px;
+    }
+    
+    .water-damage:nth-child(2) {
+      bottom: -30px;
+      right: 25%;
+      transform: rotate(-30deg);
+      width: 180px;
+      height: 100px;
+    }
+    
+    /* Header */
+    .newspaper-header {
+      text-align: center;
+      border-bottom: 4px double #000;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    /* Classic vintage newspaper masthead banner */
+    .newspaper-header:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 10px;
+      background: repeating-linear-gradient(
+        90deg,
+        #000,
+        #000 10px,
+        transparent 10px,
+        transparent 20px
+      );
+    }
+    
+    .newspaper-title {
+      font-family: 'Special Elite', 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 20px 0 10px;
+      line-height: 0.9;
+      letter-spacing: 0.01em;
+      word-spacing: 5px;
+      color: #000;
+      text-shadow: 1px 1px 0 #f4eed9, 2px 2px 0 rgba(0,0,0,0.1);
+      position: relative;
+    }
+    
+    /* Newspaper title underlines */
+    .newspaper-title:before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #000;
+    }
+    
+    .newspaper-title:after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #000;
+    }
+    
+    .small-caps {
+      font-size: 0.6em;
+      font-family: 'Special Elite', serif;
+      font-weight: normal;
+      letter-spacing: 1px;
+    }
+    
+    .newspaper-subtitle {
+      font-style: italic;
+      font-size: 18px;
+      margin: 10px 0;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+      display: inline-block;
+      padding: 5px 20px;
+    }
+    
+    .newspaper-date {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+      position: relative;
+    }
+    
+    .newspaper-date:before, .newspaper-date:after {
+      content: "✦";
+      margin: 0 15px;
+      font-size: 10px;
+      vertical-align: middle;
+    }
+    
+    .newspaper-price {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      border: 2px solid #000;
+      padding: 5px 10px;
+      font-weight: bold;
+      font-size: 14px;
+      transform: rotate(5deg);
+      background: #fff8e7;
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+    }
+    
+    .newspaper-price:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.03);
+      z-index: -1;
+    }
+    
+    .newspaper-volume {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Navigation */
+    .newspaper-nav {
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid #000;
+      border-bottom: 2px solid #000;
+      margin: 20px 0;
+      background: #f9f5e7;
+      position: relative;
+      padding: 5px 0;
+    }
+    
+    .newspaper-nav:before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(0,0,0,0.1);
+    }
+    
+    .newspaper-nav:after {
+      content: "";
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(0,0,0,0.1);
+    }
+    
+    .newspaper-nav a {
+      display: inline-block;
+      padding: 8px 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: bold;
+      position: relative;
+      font-family: 'Special Elite', serif;
+      font-size: 13px;
+    }
+    
+    .newspaper-nav a:after {
+      content: "•";
+      position: absolute;
+      right: -2px;
+      color: #000;
+    }
+    
+    .newspaper-nav a:last-child:after {
+      content: "";
+    }
+    
+    /* Content */
+    .newspaper-content {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+      position: relative;
+      background: transparent;
+      padding: 15px 0;
+      border-top: 1px solid rgba(0,0,0,0.2);
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+    
+    /* Vintage-style decorative element */
+    .newspaper-content:before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 20px;
+      background-image: 
+        radial-gradient(circle at center, #000 1px, transparent 1px),
+        radial-gradient(circle at center, #000 1px, transparent 1px),
+        radial-gradient(circle at center, #000 1px, transparent 1px);
+      background-size: 10px 10px;
+      background-position: 0 0, 10px 0, 20px 0;
+      background-repeat: no-repeat;
+      opacity: 0.5;
+    }
+    
+    /* Ornate corner decorations */
+    .ornate-corner {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.7;
+      z-index: 2;
+    }
+    
+    .ornate-corner-tl {
+      top: 10px;
+      left: 10px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cpath d='M1,1 L1,20 C1,30 10,40 20,40 L40,40' stroke='black' stroke-width='2' fill='none'/%3E%3Cpath d='M5,5 L5,20 C5,25 10,30 20,30 L30,30' stroke='black' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+    }
+    
+    .ornate-corner-tr {
+      top: 10px;
+      right: 10px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cpath d='M49,1 L49,20 C49,30 40,40 30,40 L10,40' stroke='black' stroke-width='2' fill='none'/%3E%3Cpath d='M45,5 L45,20 C45,25 40,30 30,30 L20,30' stroke='black' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+    }
+    
+    .ornate-corner-bl {
+      bottom: 10px;
+      left: 10px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cpath d='M1,49 L1,30 C1,20 10,10 20,10 L40,10' stroke='black' stroke-width='2' fill='none'/%3E%3Cpath d='M5,45 L5,30 C5,25 10,20 20,20 L30,20' stroke='black' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+    }
+    
+    .ornate-corner-br {
+      bottom: 10px;
+      right: 10px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cpath d='M49,49 L49,30 C49,20 40,10 30,10 L10,10' stroke='black' stroke-width='2' fill='none'/%3E%3Cpath d='M45,45 L45,30 C45,25 40,20 30,20 L20,20' stroke='black' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+    }
+    
+    /* Center section line */
+    .newspaper-main {
+      position: relative;
+    }
+    
+    .newspaper-main:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: #000;
+      background-image: linear-gradient(to bottom, #000 90%, transparent 10%);
+      background-size: 1px 8px;
+      opacity: 0.2;
+      z-index: 1;
+    }
+    
+    .main-story {
+      grid-column: span 12;
+      margin-bottom: 30px;
+      position: relative;
+      padding: 0 20px 20px;
+      border-bottom: 3px double #000;
+    }
+    
+    .main-story h1 {
+      font-family: 'Special Elite', serif;
+      font-size: 42px;
+      line-height: 1.2;
+      margin-bottom: 30px;
+      font-weight: 900;
+      text-align: center;
+      position: relative;
+    }
+    
+    /* Decorative headline underline */
+    .main-story h1:after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 25%;
+      right: 25%;
+      height: 3px;
+      background: #000;
+    }
+    
+    /* Decorative swash for headlines */
+    .headline-swash {
+      position: relative;
+      display: inline-block;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .headline-swash:before,
+    .headline-swash:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 30px;
+      height: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    
+    .headline-swash:before {
+      left: -35px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='20' viewBox='0 0 30 20'%3E%3Cpath d='M29,10 Q15,0 1,10' stroke='black' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+    }
+    
+    .headline-swash:after {
+      right: -35px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='20' viewBox='0 0 30 20'%3E%3Cpath d='M1,10 Q15,0 29,10' stroke='black' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+    }
+    
+    /* Secondary stories styling - enhanced */
+    .secondary-stories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      grid-column: span 12;
+      position: relative;
+      border-bottom: 1px solid #000;
+      padding-bottom: 20px;
+    }
+    
+    /* Vertical line between columns */
+    .secondary-stories:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: #000;
+      background-image: linear-gradient(to bottom, #000 70%, transparent 30%);
+      background-size: 1px 10px;
+      opacity: 0.3;
+    }
+    
+    .story-column {
+      display: flex;
+      flex-direction: column;
+      padding: 0 20px;
+    }
+    
+    .story {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+      position: relative;
+    }
+    
+    .story h2 {
+      font-family: 'Special Elite', serif;
+      font-size: 22px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .story h2:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(0,0,0,0.2);
+    }
+    
+    .story p {
+      text-align: justify;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      text-indent: 1.5em;
+      hyphens: auto;
+    }
+    
+    /* Article meta styling - enhanced */
+    .article-meta {
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 25px;
+      padding: 5px 0;
+      border-top: 1px solid rgba(0,0,0,0.3);
+      border-bottom: 1px solid rgba(0,0,0,0.3);
+      font-size: 14px;
+      background: rgba(249, 245, 231, 0.5);
+      position: relative;
+    }
+    
+    .article-meta:before {
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(0,0,0,0.1);
+    }
+    
+    /* Additional newspaper styling elements */
+    .story-divider {
+      height: 1px;
+      background: #000;
+      margin: 30px 0;
+      position: relative;
+    }
+    
+    .story-divider:before {
+      content: "★";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #f4eed9;
+      padding: 0 10px;
+      font-size: 16px;
+      color: #000;
+    }
+    
+    /* Newspaper Ink Blot styling */
+    .ink-blot {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50,0 C70,10 90,40 90,50 C90,70 70,100 50,100 C30,100 10,70 10,50 C10,40 30,10 50,0' fill='black'/%3E%3C/svg%3E");
+      background-size: contain;
+      pointer-events: none;
+      z-index: 3;
+    }
+    
+    .newspaper-footer {
+      text-align: center;
+      margin-top: 50px;
+      border-top: 3px double #000;
+      padding-top: 20px;
+      font-size: 14px;
+      color: #555;
+      position: relative;
+    }
+    
+    .footer-banner {
+      background: #000;
+      color: #fff;
+      padding: 5px 10px;
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Special Elite', serif;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    
+    .extra-edition {
+      transform: skewX(-15deg);
+      display: inline-block;
+    }
+    
+    .publisher-info {
+      margin-bottom: 5px;
+      font-style: italic;
+    }
+    
+    .footer-pattern {
+      height: 8px;
+      margin-top: 20px;
+      background: repeating-linear-gradient(
+        45deg,
+        #000,
+        #000 2px,
+        transparent 2px,
+        transparent 6px
+      );
+    }
+    
+    /* Paper fold effect */
+    .paper-fold {
+      height: 10px;
+      width: 100%;
+      margin: 30px 0;
+      position: relative;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.05), transparent);
+    }
+    
+    .paper-fold:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(0,0,0,0.2);
+    }
+    
+    /* Vintage printing imperfections */
+    .text-imperfection {
+      display: inline-block;
+      opacity: 0.9;
+      position: relative;
+    }
+    
+    .text-imperfection:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 70%);
+      opacity: 0.1;
+      pointer-events: none;
+    }
+    
+    /* Pull quote styling */
+    .pullquote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 1.4;
+      padding: 20px 20px 20px 60px;
+      position: relative;
+      margin: 20px 0;
+      column-span: all;
+      text-indent: 0;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+    }
+    
+    .pullquote:before {
+      content: """;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 100px;
+      color: rgba(0,0,0,0.2);
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .newspaper-title {
+        font-size: 48px;
+      }
+      
+      .post-content {
+        column-count: 1;
+      }
+      
+      .secondary-stories {
+        grid-template-columns: 1fr;
+      }
+      
+      .newspaper-content {
+        display: block;
+      }
+      
+      .secondary-stories:before {
+        display: none;
+      }
+      
+      body {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Ornate corners -->
+    <div class="ornate-corner ornate-corner-tl"></div>
+    <div class="ornate-corner ornate-corner-tr"></div>
+    <div class="ornate-corner ornate-corner-bl"></div>
+    <div class="ornate-corner ornate-corner-br"></div>
+    
+    <!-- Coffee stains for authentic look -->
+    <div class="coffee-stain"></div>
+    <div class="coffee-stain"></div>
+    <div class="coffee-stain"></div>
+    
+    <!-- Water damage effects -->
+    <div class="water-damage"></div>
+    <div class="water-damage"></div>
+    
+    <header class="newspaper-header">
+      <div class="newspaper-volume">Vol. XVI • No. 157</div>
+      <div class="newspaper-price">TWO CENTS</div>
+      <h1 class="newspaper-title">Grey Key Studios Blog</h1>
+      <p class="newspaper-subtitle">A blog documenting cybersecurity, AI, game dev, music and creative tech projects.</p>
+      <div class="newspaper-date">Sunday, June 01, 2025</div>
+    </header>
+    
+    <nav class="newspaper-nav">
+      <a href="/">Front Page</a>
+      <a href="/blog/">Latest Reports</a>
+      <a href="/projects/">Special Features</a>
+      <a href="/about/">About the Press</a>
+      <a href="/links/">Correspondence</a>
+    </nav>
+    
+    <main class="newspaper-main">
+      <div class="newspaper-content">
+  <div class="main-story">
+    <h1>Threat Intel Automation</h1>
+    
+    <div class="article-meta">
+      <span>By Grey Key Studios | May 2, 2025</span>
+      
+        <span> | Filed under: 
+        
+        </span>
+      
+    </div>
+    
+    
+    <div class="article-excerpt">
+      <p><strong>
+<hr />
+<p>title: “Automated Threat Intelligence with Python”
+date: 2025-05-02
+categories: [Cybersecurity, Threat Intelligence]
+tags: [python, APIs, threat-data, security-automation]
+—</p>
+</strong></p>
+    </div>
+    
+    
+    <div class="post-content">
+      
+<hr />
+<p>title: “Automated Threat Intelligence with Python”
+date: 2025-05-02
+categories: [Cybersecurity, Threat Intelligence]
+tags: [python, APIs, threat-data, security-automation]
+—</p>
+
+<h1 id="️-threat-intel-project-building-an-automated-threat-feed-harvester">🕵🏾‍♂️ Threat Intel Project: Building an Automated Threat Feed Harvester</h1>
+
+<p><strong>Part of the Cybersecurity Projects series.</strong><br />
+In this post, I’ll break down how I built a Python-based automation tool to collect and log threat intelligence from multiple sources — specifically, VirusTotal, AlienVault OTX, and AbuseIPDB.</p>
+
+<p>The goal was simple:<br />
+🎯 Build a script that could pull data from real-world threat feeds and save it locally for analysis or future use.</p>
+
+<hr />
+
+<h2 id="-why-threat-intelligence">🧠 Why Threat Intelligence?</h2>
+
+<p>Threat intelligence is a critical pillar in cybersecurity. It’s what gives SOC teams the edge — knowing what IPs, hashes, or domains are up to no good <em>before</em> they reach your network. While there are expensive commercial solutions, most of these sources offer public APIs, and with a little Python, we can tap directly into them ourselves.</p>
+
+<p>This project helped me learn:</p>
+<ul>
+  <li>How to work with REST APIs</li>
+  <li>How to safely handle and log sensitive data</li>
+  <li>How to automate data collection from multiple threat sources</li>
+</ul>
+
+<hr />
+
+<h2 id="️-tools--data-sources">🛠️ Tools &amp; Data Sources</h2>
+
+<p>Here are the threat intel feeds I integrated:</p>
+
+<ul>
+  <li>🔬 <strong>VirusTotal</strong>: File hash and domain reputation service.</li>
+  <li>🛰️ <strong>AlienVault OTX</strong>: Community-powered threat indicators (IOCs).</li>
+  <li>🛡️ <strong>AbuseIPDB</strong>: A growing blacklist of malicious IPs based on community reports.</li>
+</ul>
+
+<p>All of these platforms offer free API access with usage limits.</p>
+
+<hr />
+
+<h2 id="-how-it-works">🧪 How It Works</h2>
+
+<h3 id="1--project-structure">1. 📁 Project Structure</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Threat-Intelligence/
+├── src/
+│   ├── vt_query.py        <span class="c"># VirusTotal logic</span>
+│   ├── otx_query.py       <span class="c"># AlienVault logic</span>
+│   ├── abuseipdb_query.py <span class="c"># AbuseIPDB logic</span>
+│   └── main.py            <span class="c"># Orchestrates the full run</span>
+├── .env.example           <span class="c"># API key template</span>
+├── requirements.txt       <span class="c"># Python deps (requests, python-dotenv, etc.)</span>
+├── README.md              <span class="c"># Project documentation</span>
+</code></pre></div></div>
+
+<h3 id="2--secure-api-access">2. 🔑 Secure API Access</h3>
+
+<p>To avoid hardcoding sensitive keys, I used a <code class="language-plaintext highlighter-rouge">.env</code> file (ignored by Git). Here’s what the template looks like:</p>
+
+<pre><code class="language-env">VT_API_KEY=your_virustotal_key
+OTX_API_KEY=your_otx_key
+ABUSEIPDB_API_KEY=your_abuseipdb_key
+</code></pre>
+
+<h3 id="3--output">3. 📦 Output</h3>
+
+<p>Each module stores results in:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">results/virustotal.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">results/otx.json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">results/abuseipdb.json</code></li>
+</ul>
+
+<p>There’s also support for saving in CSV format for those who prefer Excel-style review.</p>
+
+<hr />
+
+<h2 id="-screenshots-coming-soon">📸 Screenshots (Coming Soon)</h2>
+
+<p>I’ll be adding screenshots of:</p>
+
+<ul>
+  <li>API responses in JSON format</li>
+  <li>Terminal output after running the main script</li>
+  <li>Sample results in Excel</li>
+</ul>
+
+<hr />
+
+<h2 id="-lessons-learned">🧩 Lessons Learned</h2>
+
+<ul>
+  <li>Some APIs rate-limit hard. Solution: rotate queries or introduce <code class="language-plaintext highlighter-rouge">time.sleep()</code>.</li>
+  <li>OTX gives a lot of raw data — parsing and extracting useful fields was key.</li>
+  <li>I used logging instead of <code class="language-plaintext highlighter-rouge">print()</code> to track runs and errors in production-style output.</li>
+</ul>
+
+<hr />
+
+<h2 id="-future-enhancements">🚀 Future Enhancements</h2>
+
+<ul>
+  <li>Add Shodan or URLScan as additional sources</li>
+  <li>Convert it into a CLI tool with argument parsing</li>
+  <li>Build a basic dashboard to visualize results using Flask or Streamlit</li>
+  <li>Schedule as a daily cron job for passive data collection</li>
+</ul>
+
+<hr />
+
+<h2 id="-repo-link">📎 Repo Link</h2>
+
+<p>All code and instructions are in the GitHub repo:<br />
+<a href="https://github.com/GreyKeyStudios/CyberSecurity-Projects/tree/main/Threat-Intelligence">https://github.com/GreyKeyStudios/CyberSecurity-Projects/tree/main/Threat-Intelligence</a></p>
+
+    </div>
+  </div>
+  
+  <div class="story-divider"></div>
+  
+  <div class="secondary-stories">
+    <div class="story-column">
+      <div class="story">
+        <h2>Related Articles</h2>
+        
+        
+        
+        
+        
+          
+          
+          
+          
+          
+          
+        
+          
+          
+          
+          
+          
+          
+        
+          
+          
+          
+          
+          
+          
+        
+          
+          
+          
+          
+          
+          
+        
+        
+        
+          <p>No related articles found.</p>
+        
+      </div>
+    </div>
+    
+    <div class="story-column">
+      <div class="story">
+        <h2>Latest Reports</h2>
+        
+          
+        
+          
+            <p><a href="/blog/2025/04/03/passion-lost-and-found-maybe/">Passion Lost and Found, Maybe</a></p>
+          
+        
+          
+            <p><a href="/blog/2025/04/01/welcome-to-the-grey-key-blog/">Welcome to the Grey Key Blog</a></p>
+          
+        
+          
+            <p><a href="/blog/2025/04/01/swim-through-syslog/">A Swim Through Syslog</a></p>
+          
+        
+      </div>
+    </div>
+  </div>
+</div> 
+    </main>
+    
+    <div class="paper-fold"></div>
+    
+    <footer class="newspaper-footer">
+      <div class="footer-banner">
+        <div class="extra-edition">EXTRA! EXTRA!</div>
+      </div>
+      <p class="publisher-info">Published by Grey Key Studios • ESTABLISHED 2025</p>
+      <p class="copyright">&copy; 2025 Grey Key Studios Blog. All rights reserved.</p>
+      <div class="footer-pattern"></div>
+    </footer>
+  </div>
+
+  <script>
+    // Add random imperfections to text to simulate old printing
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add slight rotation to some elements for an imperfect look
+      const elements = document.querySelectorAll('h1, h2, h3, .story, .post-item');
+      elements.forEach(element => {
+        const randomAngle = (Math.random() * 0.8 - 0.4);
+        element.style.transform = `rotate(${randomAngle}deg)`;
+      });
+      
+      // Wrap headlines in swash decorations
+      const headlines = document.querySelectorAll('.main-story h1');
+      headlines.forEach(headline => {
+        if (!headline.classList.contains('headline-swash')) {
+          headline.classList.add('headline-swash');
+        }
+      });
+      
+      // Create random ink blots
+      const container = document.querySelector('.container');
+      for (let i = 0; i < 5; i++) {
+        const inkBlot = document.createElement('div');
+        inkBlot.classList.add('ink-blot');
+        inkBlot.style.top = `${Math.random() * 100}%`;
+        inkBlot.style.left = `${Math.random() * 100}%`;
+        inkBlot.style.opacity = `${Math.random() * 0.1 + 0.05}`;
+        inkBlot.style.transform = `scale(${Math.random() * 0.5 + 0.5}) rotate(${Math.random() * 360}deg)`;
+        container.appendChild(inkBlot);
+      }
+    });
+  </script>
+</body>
+</html> 
